@@ -1,6 +1,7 @@
 Steps:
 
-1) Generate pseudoreference
+1) Generate pseudoreference (run files prefixed by: generate_pseudo_ref_)
+- Concatenate output .csv of generate_pseudo_ref_female_normals_only.py + generate_pseudo_ref_male_normals_only.py + generate_pseudo_ref_male_tumors_only.py (manually on excel or through pandas, need to do this for the next step to work properly)
 
 2) Normalize expression to pseudoreference & filter by gene TPM (run files prefixed by: pseudonormalized_transcriptional_output_)
 
