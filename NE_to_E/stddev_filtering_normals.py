@@ -36,11 +36,11 @@ figsize = (4.11,3.52) # the size of the figure - changes the shape of the square
 dpi_set = 72 # change the output resolution
 sns.set(font_scale=0.6)
 
-name = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_normals_normalized_NE_expression_TPM_geq200"
+name = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_normals_normalized_NE_expression_TPM_geq200"
 
-testing_val = "Male"
+testing_val = "Female"
 gene_type = "Non-Escapee"
-cutoff = 0.125 #0.125 for Escapee, 0.25 for Non-Escape
+cutoff = 0.25 #0.125 for Escapee, 0.25 for Non-Escape
 
 
 
@@ -108,7 +108,12 @@ df_ref = df
 
 bar = df_ref['Barcode'].tolist()
 XIST_TPM = df_ref['XIST_TPM'].tolist()
-class_ref = df_ref['Classification'].tolist()
+
+class_ref = []
+
+for a in XIST_TPM:
+    class_ref.append("Normal")
+
 sex_ref = df_ref['Gender'].tolist()
 second_class_ref = df_ref['Secondary_Class'].tolist()
 
@@ -167,10 +172,13 @@ output_df.index = old_cols
 
 output_df.to_csv(name + "_stddev_filtered_" + str(cutoff) + ".csv")
 
+
+
 df = output_df
 
 cols = df.columns.tolist()
 
+"""
 male_valid = ['BLCA', 'ESCA', 'HNSC', 'KICH', 'KIRC', 'LGG', 'LIHC', 'LUAD', 'LUSC', 'PAAD', 'PCPG', 'READ', 'SARC', 'SKCM', 'STAD', 'THCA', 'PRAD']
 
 female_valid = ['UVM', 'OV', 'SKCM', 'ACC', 'KICH', 'KIRC', 'KIRP', 'UCS', 'HNSC', 'GBM', 'COAD', 'LUSC', 'LUAD', 'SARC', 'STAD', 'LAML', 'BRCA', 'UCEC', 'CESC']
@@ -184,9 +192,10 @@ if testing_val == "Male":
 else:
     for a in cols:
         if class_dict[a] in female_valid:
-            valid_ids.append(a)        
+            valid_ids.append(a) 
+"""
 
-cols = list(set(cols) & set(valid_ids))
+cols = cols
 
 stats = []
 
@@ -198,8 +207,7 @@ for a in cols:
         c = scipy.stats.skew(curr_vals)
         stats.append(c)
     except ValueError:
-        pass
-    
+        pass    
     
 fig, ax = plt.subplots(1, 1, sharex=True, tight_layout=True, figsize=figsize)
     
