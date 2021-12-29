@@ -1,4 +1,4 @@
-Steps:
+Scripts associated with generating normalized escapee and non-escapee expression for samples. Steps in order:
 
 1) Generate pseudoreference (run files prefixed by: generate_pseudo_ref_)
 - Concatenate output .csv of generate_pseudo_ref_female_normals_only.py + generate_pseudo_ref_male_normals_only.py + generate_pseudo_ref_male_tumors_only.py (manually on excel or through pandas OR change input df paths for analysis on normals in step 2)
