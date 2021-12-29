@@ -39,9 +39,10 @@ df = df[df['End_Val']==11]
 
 del df['End_Val']
 
-orig_cols = df.columns.tolist()
-
 temp_class = []
+
+"""
+orig_cols = df.columns.tolist()
 
 curr_barcode = df['Barcode'].tolist()
 
@@ -78,6 +79,7 @@ for a in dup_items:
     df = df[~(df['Barcode'].str.contains(a))]
 
 df_ref = pd.concat([df, df_from_new_rows], ignore_index=True)
+"""
 
 second_class = df_ref['Secondary_Class'].tolist()
 
