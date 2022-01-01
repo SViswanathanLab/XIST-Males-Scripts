@@ -1,0 +1,490 @@
+﻿ annotation_hg19 ,TSS_name,450k_DNAm_status,previous_data
+" 2,746,862 ",GYG2,escape from XCI in 27 tissues,yes
+" 2,847,415 ",ARSD,escape from XCI in 27 tissues,yes
+" 3,264,683 ",MXRA5,escape from XCI in 27 tissues,yes
+" 3,631,674 ",PRKX,escape from XCI in 27 tissues,yes
+" 6,145,115 ",NLGN4X,escape from XCI in 27 tissues,yes
+" 6,145,887 ",NLGN4X,escape from XCI in 27 tissues,yes
+" 6,146,705 ",NLGN4X,escape from XCI in 27 tissues,yes
+" 7,066,047 ",STS,escape from XCI in 27 tissues,yes
+" 7,066,230 ",HDHD1,escape from XCI in 27 tissues,yes
+" 7,895,474 ",PNPLA4,escape from XCI in 27 tissues,yes
+" 8,700,226 ",KAL1,escape from XCI in 27 tissues,yes
+" 9,431,334 ",TBL1X,escape from XCI in 27 tissues,yes
+" 9,433,200 ",TBL1X,VE and escape from XCI,yes
+" 9,754,495 ",SHROOM2,VE and escape from XCI,yes
+" 9,983,794 ",WWC3,VE and subject to XCI,yes
+" 11,129,257 ",AY660578,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 11,129,405 ",HCCS,subject to XCI in 27 tissues,yes
+" 11,445,892 ",ARHGAP6,VE and subject to XCI,yes
+" 11,683,820 ",ARHGAP6,VE and subject to XCI,yes
+" 11,776,277 ",MSL3,subject to XCI in 27 tissues,yes
+" 11,777,734 ",MSL3,subject to XCI in 27 tissues,yes
+" 12,809,473 ",PRPS2,subject to XCI in 27 tissues,yes
+" 13,671,224 ",TCEANC,VE and escape from XCI,yes
+" 13,671,306 ",TCEANC,VE and escape from XCI,yes
+" 13,707,239 ",RAB9A,escape from XCI in 27 tissues,yes
+" 13,752,753 ",TRAPPC2,escape from XCI in 27 tissues,yes
+" 13,752,831 ",OFD1,escape from XCI in 27 tissues,yes
+" 13,956,533 ",GPM6B,escape from XCI in 27 tissues,yes
+" 13,956,830 ",GPM6B,escape from XCI in 27 tissues,yes
+" 14,048,034 ",GEMIN8,escape from XCI in 27 tissues,yes
+" 14,547,419 ",GLRA2,VE and escape from XCI,yes
+" 14,891,183 ",FANCB,subject to XCI in 27 tissues,yes
+" 14,891,526 ",MOSPD2,subject to XCI in 27 tissues,yes
+" 15,353,675 ",PIGA,subject to XCI in 27 tissues,yes
+" 15,511,710 ",PIR,VE and escape from XCI,yes
+" 15,693,038 ",CA5BP1,escape from XCI in 27 tissues,yes
+" 15,756,411 ",CA5B,VE and escape from XCI,yes
+" 15,808,573 ",ZRSR2,escape from XCI in 27 tissues,yes
+" 15,873,099 ",AP1S2,escape from XCI in 27 tissues,yes
+" 16,730,339 ",CTPS2,subject and escape from XCI,yes
+" 16,730,774 ",CTPS2,escape from XCI in 27 tissues,yes
+" 16,731,058 ",CTPS2,escape from XCI in 27 tissues,yes
+" 16,737,706 ",SYAP1,escape from XCI in 27 tissues,yes
+" 16,804,554 ",TXLNG,escape from XCI in 27 tissues,yes
+" 16,888,533 ",RBBP7,VE and escape from XCI,yes
+" 17,393,542 ",NHS,subject to XCI in 27 tissues,yes
+" 17,755,591 ",SCML1,subject to XCI in 27 tissues,yes
+" 17,878,946 ",RAI2,subject to XCI in 27 tissues,yes
+" 18,372,843 ",SCML2,subject to XCI in 27 tissues,yes
+" 18,443,724 ",CDKL5,VE and subject to XCI,yes
+" 18,693,100 ",TRNA_Val,VE and subject to XCI,no therefore novel XCI status call
+" 19,002,479 ",PHKA2,VE and subject to XCI,yes
+" 19,533,378 ",MAP3K15,subject to XCI in 27 tissues,yes
+" 19,905,743 ",SH3KBP1,subject to XCI in 27 tissues,yes
+" 20,159,965 ",EIF1AX,escape from XCI in 27 tissues,yes
+" 20,284,749 ",RPS6KA3,VE and subject to XCI,yes
+" 20,285,522 ",RPS6KA3,subject to XCI in 27 tissues,yes
+" 21,392,535 ",CNKSR2,subject to XCI in 27 tissues,yes
+" 21,857,655 ",MBTPS2,subject to XCI in 27 tissues,yes
+" 21,958,714 ",SMS,subject to XCI in 27 tissues,yes
+" 23,685,644 ",PRDX4,subject to XCI in 27 tissues,yes
+" 23,761,406 ",ACOT9,subject to XCI in 27 tissues,yes
+" 23,801,293 ",AK310094,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 23,926,056 ",APOO,subject to XCI in 27 tissues,yes
+" 23,926,122 ",CXorf58,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 24,073,064 ",EIF2S3,escape from XCI in 27 tissues,yes
+" 24,167,761 ",ZFX,escape from XCI in 27 tissues,yes
+" 24,483,343 ",PDK3,subject to XCI in 27 tissues,yes
+" 24,665,454 ",PCYT1B,subject to XCI in 27 tissues,yes
+" 24,712,057 ",POLA1,subject to XCI in 27 tissues,yes
+" 24,712,063 ",POLA1,subject to XCI in 27 tissues,yes
+" 28,605,680 ",IL1RAPL1,VE and subject to XCI,yes
+" 30,327,494 ",NR0B1,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 30,907,510 ",TAB3,VE and subject to XCI,yes
+" 31,285,023 ",DMD,subject to XCI in 27 tissues,yes
+" 37,208,527 ",PRRG1,VE and subject to XCI,yes
+" 37,430,821 ",LANCL3,subject to XCI in 27 tissues,yes
+" 37,545,132 ",XK,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 37,706,888 ",DYNLT3,subject to XCI in 27 tissues,yes
+" 38,080,176 ",SRPX,subject to XCI in 27 tissues,yes
+" 38,186,787 ",RPGR,VE and subject to XCI,yes
+" 38,420,730 ",TSPAN7,subject to XCI in 27 tissues,yes
+" 38,663,072 ",MID1IP1,subject to XCI in 27 tissues,yes
+" 38,664,199 ",MID1IP1,subject to XCI in 27 tissues,yes
+" 40,036,581 ",BCOR,VE and escape from XCI,yes
+" 40,440,215 ",ATP6AP2,VE and subject to XCI,yes
+" 40,506,805 ",CXorf38,VE and escape from XCI,yes
+" 40,506,818 ",CXorf38,escape from XCI in 27 tissues,yes
+" 40,944,887 ",USP9X,escape from XCI in 27 tissues,yes
+" 41,192,650 ",DDX3X,escape from XCI in 27 tissues,yes
+" 41,193,843 ",DDX3X,escape from XCI in 27 tissues,yes
+" 41,782,286 ",CASK,subject to XCI in 27 tissues,yes
+" 43,515,408 ",MAOA,subject to XCI in 27 tissues,yes
+" 44,202,922 ",EFHC2,escape from XCI in 27 tissues,yes
+" 44,402,220 ",FUNDC1,escape from XCI in 27 tissues,yes
+" 44,732,422 ",KDM6A,escape from XCI in 27 tissues,yes
+" 45,710,446 ",AK098783,VE and subject to XCI,no therefore novel XCI status call
+" 46,306,623 ",ZNF673,subject to XCI in 27 tissues,yes
+" 46,404,891 ",ZNF674,subject to XCI in 27 tissues,yes
+" 46,404,927 ",LOC401588,subject to XCI in 27 tissues,yes
+" 46,433,191 ",CHST7,subject to XCI in 27 tissues,yes
+" 46,433,366 ",CHST7,subject to XCI in 27 tissues,yes
+" 46,618,471 ",SLC9A7,subject to XCI in 27 tissues,yes
+" 46,696,346 ",RP2,subject to XCI in 27 tissues,yes
+" 46,771,867 ",PHF16,subject to XCI in 27 tissues,yes
+" 47,004,608 ",NDUFB11,subject to XCI in 27 tissues,yes
+" 47,004,616 ",RBM10,subject to XCI in 27 tissues,yes
+" 47,053,200 ",UBA1,escape from XCI in 27 tissues,yes
+" 47,077,527 ",CDK16,VE and escape from XCI,yes
+" 47,078,075 ",CDK16,VE and escape from XCI,yes
+" 47,342,344 ",ZNF41,subject to XCI in 27 tissues,yes
+" 47,342,609 ",ZNF41,subject to XCI in 27 tissues,yes
+" 47,420,515 ",ARAF,subject to XCI in 27 tissues,yes
+" 47,479,255 ",SYN1,subject to XCI in 27 tissues,yes
+" 47,510,002 ",ELK1,subject to XCI in 27 tissues,yes
+" 47,518,578 ",UXT,subject to XCI in 27 tissues,yes
+" 47,696,191 ",LOC441493,VE and subject to XCI,no therefore novel XCI status call
+" 47,696,300 ",ZNF81,VE and subject to XCI,yes
+" 47,863,376 ",ZNF182,subject to XCI in 27 tissues,yes
+" 47,863,393 ",ZNF182,subject to XCI in 27 tissues,yes
+" 47,863,733 ",SPACA5,VE and subject to XCI,no therefore novel XCI status call
+" 47,931,000 ",ZNF630,VE and subject to XCI,yes
+" 48,334,548 ",FTSJ1,subject to XCI in 27 tissues,yes
+" 48,367,370 ",PORCN,subject to XCI in 27 tissues,yes
+" 48,380,163 ",EBP,VE and subject to XCI,yes
+" 48,398,074 ",TBC1D25,subject to XCI in 27 tissues,yes
+" 48,398,099 ",TBC1D25,subject to XCI in 27 tissues,yes
+" 48,432,740 ",RBM3,subject to XCI in 27 tissues,yes
+" 48,456,223 ",WDR13,subject to XCI in 27 tissues,yes
+" 48,555,130 ",SUV39H1,subject to XCI in 27 tissues,yes
+" 48,660,508 ",HDAC6,VE and subject to XCI,yes
+" 48,693,959 ",PCSK1N,subject to XCI in 27 tissues,yes
+" 48,755,194 ",PQBP1,subject to XCI in 27 tissues,yes
+" 48,755,425 ",TIMM17B,VE and subject to XCI,yes
+" 48,755,538 ",PQBP1,subject to XCI in 27 tissues,yes
+" 48,755,774 ",PQBP1,subject to XCI in 27 tissues,yes
+" 48,768,922 ",SLC35A2,subject to XCI in 27 tissues,yes
+" 48,769,234 ",SLC35A2,subject to XCI in 27 tissues,yes
+" 48,776,412 ",PIM2,subject to XCI in 27 tissues,yes
+" 48,814,892 ",OTUD5,subject to XCI in 27 tissues,yes
+" 48,815,647 ",OTUD5,subject to XCI in 27 tissues,yes
+" 48,828,250 ",KCND1,VE and subject to XCI,yes
+" 48,858,674 ",GRIPAP1,subject to XCI in 27 tissues,yes
+" 48,900,989 ",TFE3,VE and subject to XCI,yes
+" 48,931,661 ",PRAF2,subject to XCI in 27 tissues,yes
+" 48,937,755 ",WDR45,subject to XCI in 27 tissues,yes
+" 48,958,058 ",WDR45,subject to XCI in 27 tissues,yes
+" 48,980,078 ",GPKOW,VE and subject to XCI,yes
+" 49,020,120 ",MAGIX,VE and subject to XCI,yes
+" 49,028,183 ",PLP2,subject to XCI in 27 tissues,yes
+" 49,056,660 ",SYP,subject to XCI in 27 tissues,yes
+" 49,091,926 ",CCDC22,subject to XCI in 27 tissues,yes
+" 49,126,305 ",PPP1R3F,subject to XCI in 27 tissues,yes
+" 49,643,958 ",LOC158572,subject to XCI in 27 tissues,yes
+" 49,687,224 ",CLCN5,subject to XCI in 27 tissues,yes
+" 50,213,720 ",DGKK,subject to XCI in 27 tissues,yes
+" 50,557,043 ",SHROOM4,VE and subject to XCI,yes
+" 51,075,680 ",NUDT10,subject to XCI in 27 tissues,yes
+" 53,024,650 ",FAM156A,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 53,111,541 ",TSPYL2,subject to XCI in 27 tissues,yes
+" 53,254,603 ",KDM5C,escape from XCI in 27 tissues,yes
+" 53,350,521 ",IQSEC2,escape from XCI in 27 tissues,yes
+" 53,449,617 ",SMC1A,VE and escape from XCI,yes
+" 53,449,838 ",RIBC1,escape from XCI in 27 tissues,yes
+" 53,461,322 ",HSD17B10,VE and subject to XCI,yes
+" 53,713,672 ",HUWE1,VE and subject to XCI,yes
+" 54,070,606 ",PHF8,subject to XCI in 27 tissues,yes
+" 54,209,713 ",FAM120C,subject to XCI in 27 tissues,yes
+" 54,384,437 ",WNK3,subject to XCI in 27 tissues,yes
+" 54,466,852 ",TSR2,subject to XCI in 27 tissues,yes
+" 54,522,598 ",FGD1,VE and subject to XCI,yes
+" 54,556,643 ",GNL3L,VE and subject to XCI,yes
+" 54,834,170 ",MAGED2,VE and subject to XCI,yes
+" 54,834,796 ",MAGED2,VE and subject to XCI,yes
+" 54,835,492 ",MAGED2,subject to XCI in 27 tissues,yes
+" 54,947,283 ",TRO,VE and subject to XCI,yes
+" 55,026,779 ",APEX2,subject to XCI in 27 tissues,yes
+" 55,187,534 ",FAM104B,VE and subject to XCI,yes
+" 55,187,627 ",FAM104B,subject to XCI in 27 tissues,yes
+" 55,478,537 ",MAGEH1,subject to XCI in 27 tissues,yes
+" 55,515,371 ",USP51,VE and subject to XCI,yes
+" 55,515,630 ",USP51,subject to XCI in 27 tissues,yes
+" 55,744,109 ",RRAGB,VE and subject to XCI,yes
+" 56,258,821 ",KLF8,subject to XCI in 27 tissues,yes
+" 56,258,869 ",KLF8,subject to XCI in 27 tissues,yes
+" 56,590,059 ",UBQLN2,subject to XCI in 27 tissues,yes
+" 57,021,957 ",SPIN3,VE and subject to XCI,yes
+" 57,147,061 ",SPIN2B,VE and subject to XCI,yes
+" 57,147,978 ",SPIN2B,VE and subject to XCI,yes
+" 57,618,268 ",ZXDB,subject to XCI in 27 tissues,yes
+" 62,571,217 ",SPIN4,VE and subject to XCI,no therefore novel XCI status call
+" 62,974,990 ",ARHGEF9,VE and subject to XCI,no therefore novel XCI status call
+" 62,975,030 ",ARHGEF9,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 63,005,425 ",ARHGEF9,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 63,425,623 ",FAM123B,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 63,615,332 ",MTMR8,subject to XCI in 27 tissues,yes
+" 64,254,623 ",ZC4H2,subject to XCI in 27 tissues,yes
+" 64,754,685 ",LAS1L,subject to XCI in 27 tissues,yes
+" 64,887,510 ",MSN,subject to XCI in 27 tissues,yes
+" 66,763,873 ",AR,VE and subject to XCI,yes
+" 67,653,298 ",OPHN1,subject to XCI in 27 tissues,yes
+" 67,718,623 ",YIPF6,subject to XCI in 27 tissues,yes
+" 67,867,510 ",STARD8,subject to XCI in 27 tissues,yes
+" 67,913,481 ",STARD8,subject to XCI in 27 tissues,yes
+" 68,048,839 ",EFNB1,subject to XCI in 27 tissues,yes
+" 68,385,364 ",PJA1,subject to XCI in 27 tissues,yes
+" 68,725,077 ",FAM155B,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 68,835,910 ",EDA,subject to XCI in 27 tissues,yes
+" 69,353,298 ",IGBP1,VE and subject to XCI,yes
+" 69,509,797 ",PDZD11,VE and subject to XCI,yes
+" 69,509,932 ",KIF4A,subject to XCI in 27 tissues,yes
+" 69,664,704 ",DLG3,subject to XCI in 27 tissues,yes
+" 69,672,154 ",DLG3,VE and subject to XCI,yes
+" 69,674,945 ",DLG3,subject to XCI in 27 tissues,yes
+" 70,150,974 ",SLC7A3,VE and subject to XCI,no therefore novel XCI status call
+" 70,288,230 ",SNX12,subject to XCI in 27 tissues,yes
+" 70,338,405 ",MED12,subject to XCI in 27 tissues,yes
+" 70,474,037 ",ZMYM3,subject to XCI in 27 tissues,yes
+" 70,474,498 ",ZMYM3,VE and subject to XCI,yes
+" 70,475,046 ",ZMYM3,subject to XCI in 27 tissues,yes
+" 70,503,041 ",NONO,VE and subject to XCI,yes
+" 70,586,113 ",TAF1,subject to XCI in 27 tissues,yes
+" 70,752,911 ",OGT,VE and subject to XCI,yes
+" 71,130,937 ",NHSL2,subject to XCI in 27 tissues,yes
+" 71,351,389 ",RGAG4,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 71,351,750 ",RGAG4,VE and subject to XCI,no therefore novel XCI status call
+" 71,458,857 ",ERCC6L,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 71,497,140 ",RPS4X,VE and escape from XCI,yes
+" 71,525,763 ",CITED1,VE and escape from XCI,yes
+" 71,526,836 ",CITED1,escape from XCI in 27 tissues,yes
+" 71,527,036 ",CITED1,VE and escape from XCI,yes
+" 71,792,952 ",HDAC8,subject to XCI in 27 tissues,yes
+" 71,934,028 ",PHKA1,subject to XCI in 27 tissues,yes
+" 72,434,709 ",NAP1L2,subject to XCI in 27 tissues,yes
+" 72,782,920 ",LOC139201,subject to XCI in 27 tissues,yes
+" 73,164,158 ",JPX,escape from XCI in 27 tissues,yes
+" 73,641,084 ",SLC16A2,VE and subject to XCI,yes
+" 73,834,460 ",RLIM,subject to XCI in 27 tissues,yes
+" 74,145,286 ",KIAA2022,subject to XCI in 27 tissues,yes
+" 74,376,131 ",ABCB7,VE and subject to XCI,yes
+" 74,493,893 ",UPRT,VE and subject to XCI,yes
+" 74,743,336 ",ZDHHC15,subject to XCI in 27 tissues,yes
+" 75,392,770 ",CXorf26,subject to XCI in 27 tissues,yes
+" 75,648,045 ",MAGEE1,VE and subject to XCI,yes
+" 77,041,718 ",ATRX,subject to XCI in 27 tissues,yes
+" 77,151,064 ",MAGT1,subject to XCI in 27 tissues,yes
+" 77,166,193 ",ATP7A,subject to XCI in 27 tissues,yes
+" 77,359,665 ",PGK1,subject to XCI in 27 tissues,yes
+" 77,395,178 ",TAF9B,subject to XCI in 27 tissues,yes
+" 79,277,741 ",TBX22,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 80,064,412 ",BRWD3,subject to XCI in 27 tissues,yes
+" 80,065,232 ",BRWD3,subject to XCI in 27 tissues,yes
+" 80,457,440 ",HMGN5,VE and escape from XCI,yes
+" 82,763,268 ",POU3F4,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 83,442,942 ",RPS6KA6,subject to XCI in 27 tissues,yes
+" 83,757,486 ",HDX,subject to XCI in 27 tissues,yes
+" 84,258,897 ",APOOL,VE and subject to XCI,yes
+" 84,498,996 ",ZNF711,VE and subject to XCI,yes
+" 84,499,770 ",ZNF711,VE and subject to XCI,yes
+" 85,403,454 ",DACH2,subject to XCI in 27 tissues,yes
+" 90,689,596 ",PABPC5,VE and escape from XCI,no therefore novel XCI status call
+" 91,034,259 ",PCDH11X,escape from XCI in 27 tissues,yes
+" 92,928,681 ",NAP1L3,escape from XCI in 27 tissues,yes
+" 99,665,270 ",PCDH19,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 99,891,793 ",TSPAN6,VE and subject to XCI,yes
+" 99,986,521 ",SYTL4,subject to XCI in 27 tissues,yes
+" 99,987,134 ",SYTL4,subject to XCI in 27 tissues,yes
+" 100,075,347 ",CSTF2,subject to XCI in 27 tissues,yes
+" 100,183,897 ",XKRX,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 100,307,104 ",TRMT2B,subject to XCI in 27 tissues,yes
+" 100,353,177 ",CENPI,subject to XCI in 27 tissues,yes
+" 100,603,956 ",TIMM8A,VE and subject to XCI,yes
+" 100,645,769 ",BTK,subject to XCI in 27 tissues,yes
+" 100,645,877 ",RPL36A-HNRNPH2,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 100,645,877 ",RPL36A,subject to XCI in 27 tissues,yes
+" 100,663,120 ",HNRNPH2,subject to XCI in 27 tissues,yes
+" 100,740,407 ",ARMCX4,subject to XCI in 27 tissues,yes
+" 100,805,513 ",ARMCX1,subject to XCI in 27 tissues,yes
+" 100,872,990 ",ARMCX6,subject to XCI in 27 tissues,yes
+" 100,878,119 ",ARMCX3,VE and subject to XCI,yes
+" 100,878,350 ",ARMCX3,subject to XCI in 27 tissues,yes
+" 100,913,634 ",ARMCX2,VE and escape from XCI,yes
+" 100,914,862 ",ARMCX2,subject to XCI in 27 tissues,yes
+" 101,187,038 ",ZMAT1,subject to XCI in 27 tissues,yes
+" 101,854,095 ",ARMCX5,subject to XCI in 27 tissues,yes
+" 101,854,275 ",ARMCX5-GPRASP2,VE and subject to XCI,no therefore novel XCI status call
+" 101,854,425 ",ARMCX5,subject to XCI in 27 tissues,yes
+" 101,906,293 ",GPRASP1,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 101,967,103 ",GPRASP2,subject to XCI in 27 tissues,yes
+" 101,967,290 ",ARMCX5-GPRASP2,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 101,975,641 ",BHLHB9,subject to XCI in 27 tissues,yes
+" 102,000,906 ",BHLHB9,VE and subject to XCI,yes
+" 102,470,019 ",BEX4,subject to XCI in 27 tissues,yes
+" 102,510,120 ",TCEAL8,subject to XCI in 27 tissues,yes
+" 102,611,379 ",WBP5,subject and escape from XCI,yes
+" 102,883,891 ",TCEAL1,subject to XCI in 27 tissues,yes
+" 102,943,085 ",MORF4L2,VE and subject to XCI,yes
+" 103,087,211 ",RAB9B,VE and subject to XCI,yes
+" 103,174,130 ",AK026512,VE and escape from XCI,no therefore novel XCI status call
+" 103,217,241 ",TMSB15B,VE and subject to XCI,no therefore novel XCI status call
+" 103,357,106 ",ZCCHC18,VE and subject to XCI,no therefore novel XCI status call
+" 103,401,707 ",MCART6,VE and subject to XCI,yes
+" 103,411,155 ",FAM199X,subject to XCI in 27 tissues,yes
+" 103,810,995 ",IL1RAPL2,VE and subject to XCI,yes
+" 105,855,159 ",CXorf57,subject to XCI in 27 tissues,yes
+" 105,969,893 ",RNF128,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 106,243,473 ",MORC4,subject to XCI in 27 tissues,yes
+" 106,362,056 ",RBM41,VE and subject to XCI,yes
+" 106,449,669 ",NUP62CL,subject to XCI in 27 tissues,yes
+" 106,449,861 ",CXorf41,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 107,019,016 ",TSC22D3,VE and subject to XCI,yes
+" 107,019,201 ",TSC22D3,subject to XCI in 27 tissues,yes
+" 107,069,083 ",MID2,subject to XCI in 27 tissues,yes
+" 107,334,873 ",PSMD10,subject to XCI in 27 tissues,yes
+" 107,334,898 ",ATG4A,VE and subject to XCI,yes
+" 107,681,657 ",COL4A6,VE and subject to XCI,yes
+" 107,979,606 ",IRS4,VE and subject to XCI,no therefore novel XCI status call
+" 108,780,058 ",NXT2,VE and subject to XCI,yes
+" 108,976,620 ",ACSL4,subject to XCI in 27 tissues,yes
+" 109,245,862 ",TMEM164,subject to XCI in 27 tissues,yes
+" 109,246,341 ",TMEM164,VE and subject to XCI,yes
+" 109,561,379 ",AMMECR1,subject to XCI in 27 tissues,yes
+" 110,187,512 ",PAK3,VE and subject to XCI,yes
+" 110,339,374 ",PAK3,VE and subject to XCI,yes
+" 110,924,345 ",ALG13,VE and escape from XCI,yes
+" 113,818,550 ",HTR2C,VE and escape from XCI,no therefore novel XCI status call
+" 114,795,176 ",PLS3,escape from XCI in 27 tissues,yes
+" 117,250,827 ",KLHL13,VE and subject to XCI,yes
+" 117,251,302 ",KLHL13,VE and subject to XCI,yes
+" 117,480,035 ",WDR44,subject to XCI in 27 tissues,yes
+" 117,629,871 ",DOCK11,subject to XCI in 27 tissues,yes
+" 117,861,558 ",IL13RA1,subject to XCI in 27 tissues,yes
+" 117,957,786 ",ZCCHC12,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 117,973,518 ",AK057519,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 118,108,712 ",LONRF3,subject to XCI in 27 tissues,yes
+" 118,370,210 ",PGRMC1,subject to XCI in 27 tissues,yes
+" 118,533,257 ",SLC25A43,VE and subject to XCI,yes
+" 118,602,224 ",AK094280,subject to XCI in 27 tissues,yes
+" 118,603,060 ",BC028211,VE and subject to XCI,no therefore novel XCI status call
+" 118,699,371 ",CXorf56,VE and subject to XCI,yes
+" 118,708,498 ",UBE2A,subject to XCI in 27 tissues,yes
+" 118,739,845 ",NKRF,subject to XCI in 27 tissues,yes
+" 118,826,791 ",41158,VE and subject to XCI,yes
+" 118,827,140 ",41158,VE and subject to XCI,yes
+" 118,827,332 ",41158,VE and subject to XCI,yes
+" 118,892,575 ",SOWAHD,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 118,925,605 ",RPL39,subject to XCI in 27 tissues,yes
+" 118,986,990 ",UPF3B,subject to XCI in 27 tissues,yes
+" 119,005,733 ",NDUFA1,subject to XCI in 27 tissues,yes
+" 119,005,790 ",RNF113A,subject to XCI in 27 tissues,yes
+" 119,077,734 ",NKAP,VE and subject to XCI,yes
+" 119,379,121 ",NKAPP1,subject to XCI in 27 tissues,yes
+" 119,384,606 ",ZBTB33,subject to XCI in 27 tissues,yes
+" 119,445,390 ",FAM70A,subject to XCI in 27 tissues,yes
+" 119,603,203 ",LAMP2,VE and subject to XCI,yes
+" 119,694,816 ",CUL4B,subject to XCI in 27 tissues,yes
+" 119,737,743 ",MCTS1,subject to XCI in 27 tissues,yes
+" 119,738,551 ",MCTS1,VE and subject to XCI,yes
+" 119,764,004 ",C1GALT1C1,subject to XCI in 27 tissues,yes
+" 122,318,095 ",GRIA3,VE and subject to XCI,yes
+" 122,318,764 ",GRIA3,subject to XCI in 27 tissues,yes
+" 122,866,903 ",THOC2,subject to XCI in 27 tissues,yes
+" 122,993,661 ",XIAP,VE and subject to XCI,yes
+" 122,994,016 ",XIAP,subject to XCI in 27 tissues,yes
+" 123,094,474 ",STAG2,VE and subject to XCI,yes
+" 125,300,079 ",DCAF12L2,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 128,657,459 ",SMARCA1,subject to XCI in 27 tissues,yes
+" 128,788,932 ",APLN,subject to XCI in 27 tissues,yes
+" 128,977,560 ",ZDHHC9,VE and subject to XCI,yes
+" 128,977,909 ",ZDHHC9,subject to XCI in 27 tissues,yes
+" 128,978,123 ",ZDHHC9,VE and subject to XCI,yes
+" 129,040,096 ",UTP14A,subject to XCI in 27 tissues,yes
+" 129,299,860 ",AIFM1,subject to XCI in 27 tissues,yes
+" 129,305,772 ",RAB33A,subject to XCI in 27 tissues,yes
+" 129,402,921 ",ZNF280C,subject to XCI in 27 tissues,yes
+" 129,473,927 ",SLC25A14,subject to XCI in 27 tissues,yes
+" 129,474,046 ",SLC25A14,VE and subject to XCI,yes
+" 129,535,942 ",RBMX2,subject to XCI in 27 tissues,yes
+" 129,658,230 ",BC043223,VE and subject to XCI,no therefore novel XCI status call
+" 130,037,207 ",ENOX2,subject to XCI in 27 tissues,yes
+" 130,423,034 ",IGSF1,VE and subject to XCI,yes
+" 131,157,244 ",MST4,VE and subject to XCI,yes
+" 131,157,535 ",MST4,VE and subject to XCI,yes
+" 131,351,489 ",RAP2C,subject to XCI in 27 tissues,yes
+" 131,352,188 ",RAP2C,subject to XCI in 27 tissues,yes
+" 131,352,649 ",AK095439,VE and subject to XCI,no therefore novel XCI status call
+" 131,623,060 ",MBNL3,VE and subject to XCI,yes
+" 131,623,995 ",MBNL3,VE and subject to XCI,yes
+" 132,091,372 ",HS6ST2,subject to XCI in 27 tissues,yes
+" 132,548,586 ",GPC4,subject to XCI in 27 tissues,yes
+" 132,549,204 ",GPC4,subject to XCI in 27 tissues,yes
+" 133,119,672 ",GPC3,subject to XCI in 27 tissues,yes
+" 133,371,076 ",CCDC160,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 133,507,341 ",PHF6,subject to XCI in 27 tissues,yes
+" 133,594,174 ",HPRT1,subject to XCI in 27 tissues,yes
+" 133,684,053 ",LOC100506757,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 133,931,184 ",FAM122B,subject to XCI in 27 tissues,yes
+" 133,931,261 ",FAM122B,VE and subject to XCI,yes
+" 133,941,204 ",FAM122C,VE and subject to XCI,yes
+" 133,941,222 ",FAM122C,VE and subject to XCI,yes
+" 134,049,296 ",MOSPD1,subject to XCI in 27 tissues,yes
+" 134,124,967 ",CXorf69,VE and subject to XCI,yes
+" 134,166,332 ",FAM127A,subject to XCI in 27 tissues,yes
+" 134,186,220 ",FAM127B,subject to XCI in 27 tissues,yes
+" 134,232,732 ",LINC00087,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 134,477,956 ",DKFZp451F083,VE and subject to XCI,no therefore novel XCI status call
+" 134,478,011 ",BC029787,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 134,478,695 ",ZNF449,subject to XCI in 27 tissues,yes
+" 134,555,867 ",LINC00086,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 134,654,554 ",DDX26B,subject to XCI in 27 tissues,yes
+" 135,056,133 ",MMGT1,subject to XCI in 27 tissues,yes
+" 135,067,582 ",SLC9A6,VE and subject to XCI,yes
+" 135,067,585 ",SLC9A6,subject to XCI in 27 tissues,yes
+" 135,228,860 ",FHL1,subject to XCI in 27 tissues,yes
+" 135,229,558 ",FHL1,subject to XCI in 27 tissues,yes
+" 135,333,737 ",MAP7D3,subject to XCI in 27 tissues,yes
+" 135,579,237 ",HTATSF1,subject to XCI in 27 tissues,yes
+" 135,579,670 ",HTATSF1,subject to XCI in 27 tissues,yes
+" 135,849,658 ",ARHGEF6,subject to XCI in 27 tissues,yes
+" 135,962,938 ",RBMX,subject to XCI in 27 tissues,yes
+" 135,991,553 ",AK055694,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 136,113,832 ",GPR101,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 136,648,345 ",ZIC3,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 137,793,826 ",FGF13,subject to XCI in 27 tissues,yes
+" 137,794,268 ",LOC100129662,subject and escape from XCI,no therefore novel XCI status call
+" 138,286,444 ",FGF13,VE and subject to XCI,yes
+" 138,287,184 ",FGF13,subject to XCI in 27 tissues,yes
+" 139,587,224 ",SOX3,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 140,271,309 ",LDOC1,subject to XCI in 27 tissues,yes
+" 142,722,318 ",SLITRK4,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 142,723,018 ",SLITRK4,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 144,899,346 ",SLITRK2,VE and subject to XCI,yes
+" 146,993,468 ",FMR1,subject to XCI in 27 tissues,yes
+" 147,582,138 ",AFF2,subject to XCI in 27 tissues,yes
+" 148,586,883 ",IDS,subject to XCI in 27 tissues,yes
+" 148,622,518 ",CXorf40A,subject to XCI in 27 tissues,yes
+" 148,713,486 ",TMEM185A,subject to XCI in 27 tissues,yes
+" 149,106,691 ",CXorf40B,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 149,106,765 ",LOC100272228,VE and subject to XCI,yes
+" 149,529,835 ",MAMLD1,VE and subject to XCI,yes
+" 149,531,550 ",MAMLD1,subject to XCI in 27 tissues,yes
+" 149,737,046 ",MTM1,subject to XCI in 27 tissues,yes
+" 149,861,868 ",MTMR1,subject to XCI in 27 tissues,yes
+" 150,151,762 ",HMGB3,subject to XCI in 27 tissues,yes
+" 150,565,656 ",VMA21,subject to XCI in 27 tissues,yes
+" 150,863,729 ",PRRG3,VE and subject to XCI,no therefore novel XCI status call
+" 151,143,150 ",GABRE,subject to XCI in 27 tissues,yes
+" 151,619,830 ",GABRA3,VE and subject to XCI,yes
+" 151,806,636 ",GABRQ,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 151,999,300 ",CETN2,subject to XCI in 27 tissues,yes
+" 151,999,510 ",NSDHL,subject to XCI in 27 tissues,yes
+" 152,224,765 ",PNMA3,subject to XCI in 27 tissues,yes
+" 152,599,612 ",ZNF275,subject to XCI in 27 tissues,yes
+" 152,736,602 ",HAUS7,subject to XCI in 27 tissues,yes
+" 152,907,896 ",DUSP9,subject to XCI in 27 tissues,yes
+" 152,912,656 ",DUSP9,subject to XCI in 27 tissues,yes
+" 152,938,742 ",PNCK,VE and subject to XCI,no therefore novel XCI status call
+" 152,939,276 ",PNCK,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 152,989,548 ",BCAP31,VE and subject to XCI,yes
+" 153,060,018 ",SSR4,subject to XCI in 27 tissues,yes
+" 153,141,398 ",L1CAM,VE and escape from XCI,yes
+" 153,200,467 ",NAA10,VE and subject to XCI,yes
+" 153,285,265 ",IRAK1,VE and subject to XCI,yes
+" 153,285,439 ",MIR718,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 153,363,187 ",MECP2,subject to XCI in 27 tissues,yes
+" 153,603,005 ",FLNA,subject to XCI in 27 tissues,yes
+" 153,607,596 ",EMD,subject to XCI in 27 tissues,yes
+" 153,626,570 ",RPL10,subject to XCI in 27 tissues,yes
+" 153,627,678 ",RPL10,subject to XCI in 27 tissues,yes
+" 153,639,876 ",TAZ,subject to XCI in 27 tissues,yes
+" 153,640,426 ",DNASE1L1,subject to XCI in 27 tissues,yes
+" 153,656,795 ",BC009467,subject to XCI in 27 tissues,no therefore novel XCI status call
+" 153,656,977 ",ATP6AP1,subject to XCI in 27 tissues,yes
+" 153,657,190 ",ATP6AP1,subject to XCI in 27 tissues,yes
+" 153,665,258 ",GDI1,subject to XCI in 27 tissues,yes
+" 153,672,472 ",FAM50A,subject to XCI in 27 tissues,yes
+" 153,686,622 ",PLXNA3,subject to XCI in 27 tissues,yes
+" 153,707,595 ",LAGE3,subject to XCI in 27 tissues,yes
+" 153,714,931 ",UBL4A,subject to XCI in 27 tissues,yes
+" 153,719,001 ",SLC10A3,subject to XCI in 27 tissues,yes
+" 153,744,565 ",FAM3A,subject to XCI in 27 tissues,yes
+" 153,775,232 ",G6PD,subject to XCI in 27 tissues,yes
+" 153,775,561 ",IKBKG,VE and subject to XCI,yes
+" 153,775,786 ",G6PD,subject to XCI in 27 tissues,yes
+" 153,776,061 ",IKBKG,subject to XCI in 27 tissues,yes
+" 153,979,347 ",GAB3,subject to XCI in 27 tissues,yes
+" 153,991,030 ",DKC1,subject to XCI in 27 tissues,yes
+" 154,033,801 ",MPP1,subject to XCI in 27 tissues,yes
+" 154,255,063 ",FUNDC2,subject to XCI in 27 tissues,yes
