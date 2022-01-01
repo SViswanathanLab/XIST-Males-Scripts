@@ -1,1 +1,1 @@
-Sample output files with processed methylation data across TCGA
+Sample output files from scripts in methylation folder
