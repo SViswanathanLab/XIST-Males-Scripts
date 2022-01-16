@@ -1,3 +1,3 @@
 - TCGA tumor + matched normal BAMs were downloaded from GDC for analysis. We used blood-derived matched normals, if possible. If a blood-derived normal was not available, a cancer-adjacent matched normal was used.
-- TITAN was used for copy number calls; it was submitted on the Broad Data Science servers using the wrapper script: wrapper.sh. This script runs TITAN over TCGA samples baitset by baitset.
+- TITAN was used for copy number calls; jobs were submitted on the Broad Data Science servers using the wrapper script: wrapper.sh. This script runs TITAN over TCGA samples baitset by baitset.
 - Average chrX copy number per sample was calculated using the average_cn.py script across the TITAN results directory.
