@@ -200,7 +200,10 @@ def generate_vals(df_inp, vals_ref, sample):
         
         a=0
         while a<len(gene_ids):
-            
+                        
+            cutoff1 = 0
+            cutoff2 = 0
+                
             if subset_specific != "Yes":
                 
                 """          
@@ -211,7 +214,7 @@ def generate_vals(df_inp, vals_ref, sample):
             
                 """
                 
-                if vals_ref[a] >= 200: #top 5 genes with greatest median expression across all lineage averages
+                if vals_ref[a] >= cutoff1: #top 5 genes with greatest median expression across all lineage averages
                     avg_ratio.append(math.log(temp_vals[a]/vals_ref[a], 2))
                 else:
                     avg_ratio.append(float("nan"))
@@ -219,7 +222,7 @@ def generate_vals(df_inp, vals_ref, sample):
                     
             else:
 
-                if vals_ref[a] >= 3: #top 5 genes with greatest median expression across all lineage averages
+                if vals_ref[a] >= cutoff2: #top 5 genes with greatest median expression across all lineage averages
                     avg_ratio.append(math.log(temp_vals[a]/vals_ref[a], 2))
                 else:
                     avg_ratio.append(float("nan"))
