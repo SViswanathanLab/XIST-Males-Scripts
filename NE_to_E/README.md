@@ -5,6 +5,8 @@ Scripts associated with generating normalized escapee and non-escapee expression
 
 2) Normalize expression to pseudoreference. Filtering by gene TPM can also be performed at this step (run files prefixed by: pseudonormalized_transcriptional_output_)
 
+- If filtering by gene TPM is desired, change "cutoff1" to remove non-escapee genes with TPM < cutoff1 and "cutoff2" to remove escapee gene with TPM < cutoff2
+
 3) Filter outlier genes by normalized expression (genes with average expression in XIST- females or XIST+ males of double or less than half of the appropriate pseudoreference). Filtering by standard deviation can also be performed at this step (run remove_outlier_genes.py on the tumor .csv files).
 
 - The "name" variable should correspond to the .csv generated in the previous step
