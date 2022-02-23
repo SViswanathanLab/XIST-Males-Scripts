@@ -1,6 +1,6 @@
 # XIST-Males-Scripts
 
-Each directory contains scripts used to generate key input tables
+Each directory contains scripts used to generate key input tables.
 
 Preprocessing: General steps taken for all analyses
 
