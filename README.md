@@ -1,4 +1,4 @@
-# README
+# Scripts for XIST Males Paper
 
 Each directory contains scripts used to generate key input tables.
 
