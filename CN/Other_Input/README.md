@@ -1,2 +1,2 @@
 
-Iutput files used by the scripts
+Input files used by the scripts
