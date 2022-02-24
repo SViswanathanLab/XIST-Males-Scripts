@@ -1,1 +1,2 @@
-
+- Submit ASEreadcounter.qsub to analyze chrX heterozygosity on a normal.bam
+- Submit chrY_read_pysam.py to analyze chrY read coverage on a normal.bam
