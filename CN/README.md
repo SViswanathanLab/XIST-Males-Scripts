@@ -3,5 +3,7 @@
 - Average chrX copy number per sample was calculated using the ploidy_match_TCGA_absolute_solution.py script across the TITAN results directory.
 
 Running instructions:
+
 (1) Submit wrapper.sh
+
 (2) Run ploidy_match_TCGA_absolute_solution.py across the output directory
