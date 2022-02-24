@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source /etc/profile
+
+#PBS -l nodes=1:ppn=64
+
+#modules GATK, miniconda and picard loaded from what is already on Argos
+#module used are as follows, comment out when necessary
+
+module load /mnt/storage/spack/share/spack/modules/linux-ubuntu16.04-x86_64/python-3.9.5-gcc-5.4.0-q6pq4td
+
+python3 /home/ma1111/scripts/pysam_chrY_parallel.py 
