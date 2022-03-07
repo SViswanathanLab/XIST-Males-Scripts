@@ -11,7 +11,7 @@ import matplotlib.pylab as plt
 
 
 
-excel_file = 'file.xlsx'
+excel_file = 'input.xlsx'
 
 df_tot = pd.read_excel(excel_file,engine='openpyxl')
 
