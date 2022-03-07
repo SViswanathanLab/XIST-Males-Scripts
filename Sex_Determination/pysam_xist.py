@@ -44,7 +44,7 @@ def myfunc(file1):
 
 
 nprocs = 64
-list1 = [x[0] for x in os.walk("/mnt/scratch/TCGA_data5")]
+list1 = [x[0] for x in os.walk("download_dir/")]
 
 outfile = os.path.dirname(os.path.realpath(__file__)) #os.getcwd()
 outfile += '/myout.txt'
@@ -90,7 +90,6 @@ sys.exit()
 
 
 t1 = time.time()
-#bamfile = pysam.AlignmentFile("/home/ma1111/TCGA-TQ-A7RR/normal.bam", "rb")
 bamfile = pysam.AlignmentFile(path, "rb")
 print(t1-time.time())
 
@@ -110,23 +109,5 @@ for read in bamfile.fetch("chrY"):
 norm_count = decimal.Decimal(count)/denom 
 
 print (count, norm_count)
-
-
-
-
-#autosomes = ['chr1','chr2','chr3','chr4','chr5','chr6','chr7','chr8','chr9','chr10','chr11','chr12','chr13','chr14','chr15','chr16','chr17','chr18','chr19','chr20','chr21','chr22']
-
-#fetching reads that are mapped to a region, in this case chrY
-
-#counts = 0
-#autosome_counts = bamfile.count() - bamfile.count("chrX") - bamfile.count("chrY") #bamfile.count("chrX")
-#iter = bamfile.fetch("chrY")
-#read1 = 0
-#for read in iter:
-	#if (read.mapping_quality>30.):
-		#read1 += 1
-
-	#counts = read1/autosome_counts
-	#print (counts)
 
 
