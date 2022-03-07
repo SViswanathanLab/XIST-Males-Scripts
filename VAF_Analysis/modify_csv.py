@@ -9,7 +9,7 @@ def find_median_string(string):
 
 
 
-csv_file = 'file.csv'
+csv_file = 'input.csv'
 
 df = pd.read_csv(csv_file)
 
