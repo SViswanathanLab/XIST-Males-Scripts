@@ -26,7 +26,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df3 = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TCGA_mastercalls.abs_tables_JSedit.fixed.processed.txt", sep="\t")
+df3 = pd.read_csv("../VAF_Analysis/Other_Input/TCGA_mastercalls.abs_tables_JSedit.fixed.processed.txt", sep="\t")
 
 uq_samples = df3['array'].tolist()
 
@@ -34,7 +34,7 @@ chrX_cn = df3['purity'].tolist()
 
 cn_dict = dict(zip(uq_samples, chrX_cn))
 
-df_ploidy = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/median_autosome_copies_TCGA_median_ploidy.csv")
+df_ploidy = pd.read_csv("../VAF_Analysis/Other_Input/median_autosome_copies_TCGA_median_ploidy.csv")
 
 ploidy = df_ploidy['median_of_rounded_avg_modal_copies_per_chr'].tolist()
 
@@ -42,7 +42,7 @@ sample_test = df_ploidy['sample'].tolist()
 
 ploidy_dict = dict(zip(sample_test, ploidy))
 
-df2 = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/chrX_muts_REVISED_8_28_females_unaveraged.txt", sep="\t")
+df2 = pd.read_csv("../VAF_Analysis/Other_Input/chrX_muts_REVISED_8_28_females_unaveraged.txt", sep="\t")
 
 df2 = df2[df2['Variant_Classification']!="Intron"]
 
@@ -50,13 +50,13 @@ df2 = df2[df2['Variant_Classification']!="Intron"]
 
 valid_samples = list(set(df2['Truncated_Barcodes'].tolist()))
 
-df_gene_class = pd.read_excel("/Users/ananthansadagopan/Documents/ViswanathanLab/CCLE/chrX_gene_classes.xlsx")
+df_gene_class = pd.read_excel("../VAF_Analysis/Other_Input/chrX_gene_classes.xlsx")
 
 inactivated_genes = df_gene_class['Inactivated'].tolist()
 
 
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df = pd.read_csv("../VAF_Analysis/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM']
 
@@ -88,7 +88,7 @@ second_classification_dict = dict(zip(df_barcodes, df_second_class))
 
 print("READING 1st RNA")
     
-df_RNA_temp = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/gene_id_name_and_chr_all_biomart.csv")
+df_RNA_temp = pd.read_csv("../VAF_Analysis/Other_Input/gene_id_name_and_chr_all_biomart.csv")
 
 print("READ 1st RNA")
 
@@ -101,7 +101,7 @@ symbol_dict = dict(zip(gene_id, gene_symbol))
 
 print("READING 2nd RNA")
 
-df_RNA = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/female_tumors_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
+df_RNA = pd.read_csv("../VAF_Analysis/Other_Input/female_tumors_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
 
 print("READ 2nd RNA")
     
@@ -275,6 +275,6 @@ while a<len(pur_vals):
 
 print(len(list(set(df2['Truncated_Barcodes'].tolist()))))
 
-df2.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv", index=False)
+df2.to_csv("../VAF_Analysis/Output_Files/chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv", index=False)
 
 #ploidy_dict
