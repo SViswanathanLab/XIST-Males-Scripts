@@ -21,7 +21,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_ref = pd.read_csv("../NE_to_E/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 
 df_ref = df_ref[df_ref['Gender']=="MALE"]
@@ -113,7 +113,7 @@ class_dict = dict(zip(df_ref['Barcode'].tolist(), df_ref['new_class'].tolist()))
 
 print("READING 1st RNA")
 
-df_RNA_temp = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/gene_id_name_and_chr_all_biomart.csv")
+df_RNA_temp = pd.read_csv("../NE_to_E/Other_Input/gene_id_name_and_chr_all_biomart.csv")
 
 print("READ 1st RNA")
 
@@ -126,7 +126,7 @@ symbol_dict = dict(zip(gene_id, gene_symbol))
 
 print("READING 2nd RNA")
 
-df_RNA = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_tumors_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
+df_RNA = pd.read_csv("../NE_to_E/Other_Input/male_tumors_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
 
 print("READ 2nd RNA")
     
@@ -161,7 +161,7 @@ df_RNA_temp_cols = df_RNA.columns.tolist()
 df_high = list(set(df_high) & set(df_RNA_temp_cols))
 
 
-df_gene_class = pd.read_excel("/Users/ananthansadagopan/Documents/ViswanathanLab/CCLE/chrX_gene_classes.xlsx")
+df_gene_class = pd.read_excel("../NE_to_E/Other_Input/chrX_gene_classes.xlsx")
 
 inactivated_genes = df_gene_class['Inactivated'].tolist()
 escaping_genes = df_gene_class['Escaping'].tolist()
@@ -175,12 +175,8 @@ df_X = df_RNA[df_RNA['gene_symbol'].isin(inactivated_genes)]
 df_autosome = df_RNA[(df_RNA['gene_symbol'].isin(escaping_genes))]
 
     
-df_e_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/all_redone_e_pseudo_reference_XISTneg_males.csv")
-df_ne_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/all_redone_ne_pseudo_reference_XISTneg_males.csv")
-
-#df_e_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/e_pseudo_reference_XISTpos_females.csv")
-#df_ne_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/ne_pseudo_reference_XISTpos_females.csv")
-
+df_e_ref = pd.read_csv("../NE_to_E/Other_Input/all_redone_e_pseudo_reference_XISTneg_males.csv")
+df_ne_ref = pd.read_csv("../NE_to_E/Other_Input/all_redone_ne_pseudo_reference_XISTneg_males.csv")
 
 #NE_list = ['RPL10', 'RPL39', 'RPL36A', 'SSR4', 'FLNA', 'SAT1', 'PGK1', 'SLC25A5', 'BCAP31', 'NONO', 'BGN', 'MORF4L2', 'PLP2', 'NDUFA1', 'UXT', 'MAGED2', 'PRDX4', 'HSD17B10', 'MSN', 'NDUFB11', 'ATP6AP1', 'RBMX', 'MAGED1', 'PDHA1', 'WDR13', 'TCEAL4', 'LAMP2', 'FUNDC2', 'PGRMC1', 'ATP6AP2', 'GDI1', 'TSC22D3', 'FAM50A', 'SMS', 'IRAK1', 'TIMM17B', 'IDH3G', 'HUWE1', 'HNRNPH2', 'IGBP1', 'WDR45', 'CETN2', 'UBE2A', 'LAGE3', 'ARAF', 'HMGB3', 'MCTS1', 'TSR2', 'USP11', 'FAM3A', 'G6PD', 'OTUD5', 'PSMD10', 'ARMCX6', 'BEX4', 'HTATSF1', 'VBP1', 'FTSJ1', 'LDOC1', 'AIFM1', 'SNX12', 'DKC1', 'HPRT1', 'IL13RA1', 'MID1IP1', 'GLA', 'IDS', 'UBL4A', 'MAGT1', 'HDAC6', 'OGT', 'PRAF2', 'PBDC1', 'RBM10', 'SLC35A2', 'ARMCX3', 'THOC2', 'PRPS1', 'APOO', 'TFE3', 'LAS1L', 'FHL1', 'GRIPAP1', 'PRPS2', 'TAZ', 'STAG2', 'ZDHHC9', 'VAMP7', 'DNASE1L1', 'ACOT9', 'SLC10A3', 'HAUS7', 'PIN4', 'NSDHL', 'DYNLT3', 'RBMX2', 'CUL4B', 'CD99L2', 'ELK1', 'MPP1']
 
