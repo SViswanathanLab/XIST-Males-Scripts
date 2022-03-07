@@ -299,6 +299,6 @@ while a<len(ne_ids_list)-1:
         print("ERROR")
     a=a+1
 
-ne_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_normals_ne_pseudo_reference_XISTneg_males.csv")
-autosome_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_normals_autosome_pseudo_reference_XISTneg_males.csv")
-e_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_normals_e_pseudo_reference_XISTneg_males.csv")
+ne_df.to_csv("../NE_to_E/Output_Files/male_normals_ne_pseudo_reference_XISTneg_males.csv")
+autosome_df.to_csv("../NE_to_E/Output_Files/male_normals_autosome_pseudo_reference_XISTneg_males.csv")
+e_df.to_csv("../NE_to_E/Output_Files/male_normals_e_pseudo_reference_XISTneg_males.csv")
