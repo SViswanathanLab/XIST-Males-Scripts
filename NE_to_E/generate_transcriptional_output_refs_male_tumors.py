@@ -36,7 +36,7 @@ figsize = (4.11,3.52) # the size of the figure - changes the shape of the square
 dpi_set = 72 # change the output resolution
 sns.set(font_scale=0.6)
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_E_expression_TPM_geq0_speific_genes_stddev_filtered_10000000.csv")
+df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_E_expression_TPM_geq0_speific_genes_stddev_filtered_10000000.csv")
 cols = df.columns.tolist()
 
 del cols[0]
@@ -50,7 +50,7 @@ for a in cols:
 E_dict = dict(zip(cols, median_vals))
 
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_NE_expression_TPM_geq0_speific_genes_stddev_filtered_10000000.csv")
+df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_NE_expression_TPM_geq0_speific_genes_stddev_filtered_10000000.csv")
 cols = df.columns.tolist()
 
 del cols[0]
@@ -63,7 +63,7 @@ for a in cols:
 
 NE_dict = dict(zip(cols, median_vals))
 
-df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_ref = pd.read_csv("../NE_to_E/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 df = df_ref[df_ref['Classification']!="UNKNOWN"]
 
@@ -191,6 +191,6 @@ if dup_items:
     
     df = pd.concat([df, df_from_new_rows], ignore_index=True)
 
-df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/tumors_only_MALES_resubset_09averaged_no_PAR_no_segment_mean_normalization_median_ne_e_pseudo_normalized_sample_level_ratio.csv", index=False)
+df.to_csv("../NE_to_E/Output_Files/tumors_only_MALES_resubset_09averaged_no_PAR_no_segment_mean_normalization_median_ne_e_pseudo_normalized_sample_level_ratio.csv", index=False)
 
 
