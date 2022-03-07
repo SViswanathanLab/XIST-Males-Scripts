@@ -38,7 +38,7 @@ plt.rcParams.update({'font.size': 14})
 
 ploidy_vals_to_test = [2, 3, 4, 5]
 
-path = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TCGA_mastercalls.abs_tables_JSedit.fixed.txt"
+path = "../CN/Other_Input/TCGA_mastercalls.abs_tables_JSedit.fixed.txt"
 
 df = pd.read_csv(path, sep="\t")
 df = df[df['ploidy'].notna()]
@@ -63,18 +63,10 @@ for a in ploidy:
 ploidy_dict = dict(zip(sample, new_ploidy))
 """
 
-#TCGA_VAF_all_samples_ref_for_Titan_baitset_annotated.csv
-
-path_old = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/parital_TCGA_VAF_all_samples_ref_for_Titan_baitset_annotated.csv"
-
-df_old = pd.read_csv(path_old)
-old_id_val = df_old['IDs'].tolist()
-
-path2 = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TCGA_VAF_all_samples_ref_for_Titan_baitset_annotated.csv"
+path2 = "../CN/TCGA_VAF_all_samples_ref_for_Titan_baitset_annotated.csv"
 
 df2 = pd.read_csv(path2)
 df2 = df2[df2['Baitset']!="Unknown"]
-df2 = df2[~(df2['IDs'].isin(old_id_val))]
 
 print(len(df2.index.tolist()))
 
@@ -82,7 +74,7 @@ id_val = df2['IDs'].tolist()
 sub_ids = df2['Sub_ID'].tolist()
 baitset = df2['Baitset'].tolist()
 
-df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/table_s1_v4.csv")
+df_ref = pd.read_csv("../CN/Other_Input/table_s1_v4.csv")
 
 invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
 
@@ -116,8 +108,8 @@ for a in id_val:
 
 output_dir_list = []
 
-male_path = "/Volumes/sviswanathan/users/asadagopan/TCGA_TITAN_r2_male/"
-female_path = "/Volumes/sviswanathan/users/asadagopan/TCGA_TITAN_r2/"
+male_path = "TCGA_TITAN_r2_male/"
+female_path = "TCGA_TITAN_r2/"
 
 agilent1_path = "Agilent_1_incorrect_baitset/"
 agilent2_path = "Agilent_2/"
@@ -248,7 +240,7 @@ while a<len(id_val):
         cols = ['ID', 'Sub_ID', 'Best_Solution', 'Unrounded_chrX_CN', 'Rounded_chrX_CN', 'ABSOLUTE_ploidy', 'Baitset', 'Sex']
         df_out.columns = cols
         
-        df_out.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TITAN_best_solutions_in_TCGA_set2.csv", index=False)
+        df_out.to_csv("../CN/Output_Files/TITAN_final_solutions.csv", index=False)
     
     a=a+1
     print(a)
@@ -257,7 +249,7 @@ df_out = pd.DataFrame([id_val, sub_ids, optimal_files, avg_chrX_CN, rounded_avg_
 cols = ['ID', 'Sub_ID', 'Best_Solution', 'Unrounded_chrX_CN', 'Rounded_chrX_CN', 'ABSOLUTE_ploidy', 'Baitset', 'Sex']
 df_out.columns = cols
 
-df_out.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TITAN_best_solutions_in_TCGA_set2.csv", index=False)
+df_out.to_csv("../CN/Output_Files/TITAN_final_solutions.csv", index=False)
 
 
 
