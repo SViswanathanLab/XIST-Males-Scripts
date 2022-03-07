@@ -4,6 +4,10 @@
 
 Running instructions:
 
+(1) Download TITAN (https://github.com/GavinHaLab/TitanCNA_SV_WGS) and prepare a config file (example in: config.yaml)
+
+Ha G, Roth A, Khattra J, Ho J, Yap D, Prentice LM, Melnyk N, McPherson A, Bashashati A, Laks E, Biele J. TITAN: inference of copy number architectures in clonal cell populations from tumor whole-genome sequence data. Genome research. 2014 Nov 1;24(11):1881-93.
+
 (1) Submit wrapper.sh
 
 (2) Run ploidy_match_TCGA_absolute_solution.py across the output directory
