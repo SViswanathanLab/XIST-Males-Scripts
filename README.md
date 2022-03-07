@@ -1,4 +1,4 @@
-# Scripts for XIST Males Paper
+# Scripts for "Somatic XIST activation and X chromosome inactivation in a subset of male human cancers." [Sadagopan A et al.]
 
 Each directory contains scripts used to generate key input tables.
 
