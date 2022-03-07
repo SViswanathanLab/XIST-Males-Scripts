@@ -36,13 +36,13 @@ figsize = (4.11,3.52) # the size of the figure - changes the shape of the square
 dpi_set = 72 # change the output resolution
 sns.set(font_scale=0.6)
 
-name = "/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_tumors_normalized_E_expression_TPM_geq0"
+name = "../NE_to_E/Output_Files/skewness_female_tumors_normalized_E_expression_TPM_geq0"
 
 testing_val = "Female"
 gene_type = "Escapee"
 cutoff = 10000000 #0.125 for Escapee, 0.25 for Non-Escape
 
-df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_ref = pd.read_csv("../NE_to_E/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 df = df_ref[df_ref['Classification']!="UNKNOWN"]
 
@@ -116,8 +116,8 @@ uq_classes = list(set(class_ref))
 
 df = pd.read_csv(name + ".csv")
 
-e_valid_genes = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/e_valid_genes_0.5_to_2_cutoff.csv")
-ne_valid_genes = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/ne_valid_genes_0.5_to_2_cutoff.csv")
+e_valid_genes = pd.read_csv("../NE_to_E/Output_Files/e_valid_genes_0.5_to_2_cutoff.csv")
+ne_valid_genes = pd.read_csv("../NE_to_E/Output_Files/ne_valid_genes_0.5_to_2_cutoff.csv")
 
 female_e = e_valid_genes['XISTpos_female_ref'].tolist()
 male_e = e_valid_genes['XISTneg_male_ref'].tolist()
