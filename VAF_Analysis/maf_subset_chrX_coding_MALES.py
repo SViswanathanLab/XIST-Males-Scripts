@@ -26,7 +26,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df2 = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/mc3.v0.2.8.PUBLIC.maf", sep="\t")
+df2 = pd.read_csv("../VAF_Analysis/Other_Input/mc3.v0.2.8.PUBLIC.maf", sep="\t")
 
 w = df2['Variant_Classification'].tolist()
 print(list(set(w)))
@@ -44,7 +44,7 @@ for a in df_barcodes:
     
 df2['Truncated_Barcodes'] = trunc_barcodes
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df = pd.read_csv("../VAF_Analysis/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
 
@@ -75,5 +75,5 @@ id_list = df['Barcode'].tolist()
 
 df2 = df2[df2['Truncated_Barcodes'].isin(id_list)]
 
-df2.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/chrX_muts_REVISED_8_28_males_unaveraged.txt", sep="\t", index=False)
+df2.to_csv("../VAF_Analysis/Output_Files/chrX_muts_REVISED_8_28_males_unaveraged.txt", sep="\t", index=False)
 
