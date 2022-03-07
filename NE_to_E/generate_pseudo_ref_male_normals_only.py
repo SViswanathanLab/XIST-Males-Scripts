@@ -44,7 +44,7 @@ e_ids_list = []
 autosome_values_list = []
 autosome_ids_list = []
     
-df_XIST = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_XIST = pd.read_csv("../NE_to_E/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM']
 
@@ -99,7 +99,7 @@ symbol_dict = dict(zip(gene_id, gene_symbol))
 
 print("READING 2nd RNA")
 
-df_RNA = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/tcga_RSEM_gene_tpm", sep="\t")
+df_RNA = pd.read_csv("../NE_to_E/Other_Input/tcga_RSEM_gene_tpm", sep="\t")
 
 print("READ 2nd RNA")
 
@@ -140,7 +140,7 @@ print(df_RNA)
 
 print("READING 1st RNA")
 
-df_RNA_temp = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/gene_id_name_and_chr_all_biomart.csv")
+df_RNA_temp = pd.read_csv("../NE_to_E/Other_Input/gene_id_name_and_chr_all_biomart.csv")
 
 print("READ 1st RNA")
 
@@ -153,7 +153,7 @@ symbol_dict = dict(zip(gene_id, gene_symbol))
 
 print("READING 2nd RNA")
 
-df_RNA = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_normals_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
+df_RNA = pd.read_csv("../NE_to_E/Other_Input/male_normals_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t")
 
 print("READ 2nd RNA")
     
@@ -187,7 +187,7 @@ print(df_RNA)
 
 df_RNA_temp_cols = df_RNA.columns.tolist()
 
-df_XIST = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_XIST = pd.read_csv("../NE_to_E/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM']
 
@@ -233,7 +233,7 @@ df_low = l_samples
 
 df_low = list(set(df_low) & set(df_RNA_temp_cols))
 
-df_gene_class = pd.read_excel("/Users/ananthansadagopan/Documents/ViswanathanLab/CCLE/chrX_gene_classes.xlsx")
+df_gene_class = pd.read_excel("../NE_to_E/Other_Input/chrX_gene_classes.xlsx")
 
 inactivated_genes = df_gene_class['Inactivated'].tolist()
 escaping_genes = df_gene_class['Escaping'].tolist()
