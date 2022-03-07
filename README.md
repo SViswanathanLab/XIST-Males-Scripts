@@ -16,4 +16,4 @@ Each directory contains scripts used to generate key input tables.
 
 **Sex_Determination**: Scripts used to Analyze chrY Reads and chrX Heterozygosity
 
-**VAF_Analysis**: Variant Allele Fraction Summary Across DNA and RNA
+**VAF_Analysis**: Variant Allele Fraction Analysis Across DNA and RNA
