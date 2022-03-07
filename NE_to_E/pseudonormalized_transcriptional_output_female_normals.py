@@ -272,13 +272,13 @@ df_NE_out = pd.DataFrame(new_NE_rows).T
 df_NE_out.columns = df_high
 df_NE_out.index = df_X['gene_symbol'].tolist()
 
-df_NE_out.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_normals_normalized_NE_expression_TPM_geq200.csv")
+df_NE_out.to_csv("../NE_to_E/Output_Files/skewness_female_normals_normalized_NE_expression_TPM_geq200.csv")
 
 df_E_out = pd.DataFrame(new_E_rows).T
 df_E_out.columns = df_high
 df_E_out.index = df_autosome['gene_symbol'].tolist()
 
-df_E_out.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_normals_normalized_E_expression_TPM_geq3.csv")
+df_E_out.to_csv("../NE_to_E/Output_Files/skewness_female_normals_normalized_E_expression_TPM_geq3.csv")
 
 
 
