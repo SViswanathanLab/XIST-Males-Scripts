@@ -38,7 +38,7 @@ def get_VAF(samfile,position,ref_base,chrom,map_quality=0,base_quality=0):
 
 #We need to load in the excel file and the TCGA txt file containing the bam file names
 
-csv_file = 'some.csv'
+csv_file = 'input.csv'
 
 df = pd.read_csv(csv_file)
 
