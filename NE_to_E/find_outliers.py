@@ -51,11 +51,11 @@ gene_type = "ESCAPE"
 plot_type = "MALE"
 
 if gene_type == "NONESCAPE":
-    m_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_NE_expression_TPM_geq0.csv")
-    f_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_tumors_normalized_NE_expression_TPM_geq0.csv")
+    m_df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_NE_expression_TPM_geq0.csv")
+    f_df = pd.read_csv("../NE_to_E/Output_Files/skewness_female_tumors_normalized_NE_expression_TPM_geq0.csv")
 elif gene_type == "ESCAPE":
-    m_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_E_expression_TPM_geq0.csv")
-    f_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_tumors_normalized_E_expression_TPM_geq0.csv")
+    m_df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_E_expression_TPM_geq0.csv")
+    f_df = pd.read_csv("../NE_to_E/Output_Files/skewness_female_tumors_normalized_E_expression_TPM_geq0.csv")
 
 m_gene_list = m_df['Unnamed: 0'].tolist()
 f_gene_list = f_df['Unnamed: 0'].tolist()
@@ -66,7 +66,7 @@ if m_gene_list != f_gene_list:
 m_cols = m_df.columns.tolist()
 f_cols = f_df.columns.tolist()
 
-df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_ref = pd.read_csv("../NE_to_E/Output_Files/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 #df_ref = df_ref[df_ref['Classification'].isin(["OV"])]
 
@@ -102,7 +102,7 @@ lf_df[numeric_cols] = lf_df[numeric_cols].apply(lambda x: 2**x)
 
 
 
-df_RNA_temp = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/gene_id_name_chr_chrX_biomart.csv")
+df_RNA_temp = pd.read_csv("../NE_to_E/Other_Input/gene_id_name_chr_chrX_biomart.csv")
 
 location = df_RNA_temp['Gene start (bp hg19)'].tolist()
 gene_symbol = df_RNA_temp['Gene name'].tolist()
@@ -160,9 +160,9 @@ valid_genes_df = pd.DataFrame([gene_list2, gene_list3]).T
 valid_genes_df.columns = ['XISTneg_male_ref', 'XISTpos_female_ref']
 
 if gene_type == "NONESCAPE":
-    valid_genes_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/ne_valid_genes_0.5_to_2_cutoff.csv", index=False)
+    valid_genes_df.to_csv("../NE_to_E/Output_Files/ne_valid_genes_0.5_to_2_cutoff.csv", index=False)
 elif gene_type == "ESCAPE":
-    valid_genes_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/e_valid_genes_0.5_to_2_cutoff.csvv", index=False)
+    valid_genes_df.to_csv("../NE_to_E/Output_Files/e_valid_genes_0.5_to_2_cutoff.csvv", index=False)
 
 
 if plot_type == "FEMALE":
@@ -233,17 +233,6 @@ fig.tight_layout()
 
 dpi_set = 72
 plt.tick_params(bottom='on', left='on')
-
-if gene_type == "NONESCAPE" and plot_type == "FEMALE":
-    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_ne_expression_vs_chrX_location_female.pdf", dpi=dpi_set, bbox_inches = 'tight')
-elif gene_type == "ESCAPE" and plot_type == "FEMALE":
-    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_e_expression_vs_chrX_location_female.pdf", dpi=dpi_set, bbox_inches = 'tight')
-elif gene_type == "NONESCAPE" and plot_type == "MALE":
-    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_ne_expression_vs_chrX_location_male.pdf", dpi=dpi_set, bbox_inches = 'tight')
-elif gene_type == "ESCAPE" and plot_type == "MALE":
-    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_e_expression_vs_chrX_location_male.pdf", dpi=dpi_set, bbox_inches = 'tight')
-
-
 
 
 
