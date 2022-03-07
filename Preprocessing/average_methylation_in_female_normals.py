@@ -13,7 +13,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.tsv", sep="\t")
+df = pd.read_csv("jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.tsv", sep="\t")
 
 cols = df.columns.tolist()
 
@@ -56,7 +56,7 @@ df.columns = trunc_cols_new
 print(len(trunc_cols_new))
 print(len(list(set(trunc_cols_new))))
 
-df_gender = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_gender = pd.read_csv("../Preprocessing/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 df_male = df_gender[df_gender['Gender'] == "FEMALE"]
 male_barcodes_unp = df_male['Barcode'].tolist()
@@ -128,4 +128,4 @@ while a<len(uq_dups):
 
 print(df)
 
-df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/female_normals_only_averaged_jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.txt", sep="\t", index=False)
+df.to_csv("female_normals_only_averaged_jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.txt", sep="\t", index=False)
