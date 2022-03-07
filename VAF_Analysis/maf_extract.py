@@ -4,7 +4,7 @@ import json
 import pandas as pd
 
 
-csv_file = 'file.csv'
+csv_file = 'input.csv'
 
 
 df = pd.read_csv(csv_file)
