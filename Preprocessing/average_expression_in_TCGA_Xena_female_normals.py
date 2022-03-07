@@ -16,7 +16,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df_gender = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_gender = pd.read_csv("../Preprocessing/Other_Input/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 df_male = df_gender[df_gender['Gender'] == "FEMALE"]
 male_barcodes = df_male['Barcode'].tolist()
@@ -25,7 +25,7 @@ male_barcodes.insert(0, "sample")
 
 print("READING RNA")
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/tcga_RSEM_gene_tpm", sep="\t")
+df = pd.read_csv("tcga_RSEM_gene_tpm", sep="\t")
 
 print("READ RNA")
 
@@ -114,6 +114,6 @@ while a<len(uq_dups):
 
 print(df)
 
-df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/female_normals_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t", index=False)
+df.to_csv("female_normals_only_averaged_tcga_RSEM_gene_tpm.txt", sep="\t", index=False)
 
 
