@@ -27,7 +27,7 @@ while p<len(case_id_superlist):
     case_id = case_id_superlist[p]
     extension_list = extension_superlist[p]
 
-    filename = '/tcga-artemis/tcga_WXS/tcga_WXS_BAM_HG38_FILES_gdc_sample_sheet.tsv' #This is important
+    filename = '/tcga-artemis/tcga_WXS/tcga_WXS_BAM_HG38_FILES_gdc_sample_sheet.tsv' #This is important, Broad DS servers
     
     i=0
     df = pd.read_csv(filename, sep='\t')
