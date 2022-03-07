@@ -1,6 +1,6 @@
 Scripts associated with generating normalized escapee and non-escapee expression for samples. Steps in order:
 
-1) Generate pseudoreference (run files prefixed by: generate_pseudo_ref_)
+1) Generate pseudoreference (run files prefixed by: generate_pseudo_ref_). For more details regarding the pseudoreference, please see the manuscript methods.
 - Concatenate output .csv of generate_pseudo_ref_female_normals_only.py + generate_pseudo_ref_male_normals_only.py + generate_pseudo_ref_male_tumors_only.py (manually on excel or through pandas OR change input df paths for analysis on normals in step 2)
 
 2) Normalize expression to pseudoreference. Filtering by gene TPM can also be performed at this step (run files prefixed by: pseudonormalized_transcriptional_output_)
