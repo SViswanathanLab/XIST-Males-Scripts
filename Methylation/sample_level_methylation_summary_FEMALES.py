@@ -35,7 +35,7 @@ while www<len(full_class_list):
 
     temp_class = full_class_list[www]
     
-    df_XIST = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/female_tumors_averaged_TCGA_Xena_TPM.csv")
+    df_XIST = pd.read_csv("../Methylation/Other_Input/female_tumors_averaged_TCGA_Xena_TPM.csv")
     
     invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM']
 
@@ -74,7 +74,7 @@ while www<len(full_class_list):
     
     df_low = l_samples
             
-    df2 = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TCGA_mastercalls.abs_tables_JSedit.fixed.processed.txt", sep="\t")
+    df2 = pd.read_csv("../Methylation/Other_Input/TCGA_mastercalls.abs_tables_JSedit.fixed.processed.txt", sep="\t")
     
     uq_samples = df2['array'].tolist()
     
@@ -105,11 +105,11 @@ while www<len(full_class_list):
     
     print("READING methylation")
     
-    df_RNA = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/female_tumors_only_averaged_jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.txt", sep="\t")
+    df_RNA = pd.read_csv("../Methylation/Other_Input/female_tumors_only_averaged_jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.txt", sep="\t")
     
     print("READ methylation")
     
-    df_annot = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/CCLE/methylation_annotation_ref.csv")
+    df_annot = pd.read_csv("../Methylation/Other_Input/methylation_annotation_ref.csv")
     
     #df_annot = df_annot[df_annot['Feature_Type'] == "Island"] #Restrict to CpG islands
     
@@ -163,7 +163,7 @@ while www<len(full_class_list):
     df_high = list(set(df_high) & set(df_RNA_temp_cols))
     df_low = list(set(df_low) & set(df_RNA_temp_cols))
     
-    cpg_promoter_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/chrX_non_escaping_CpG_promoter_islands.csv") #corresponding to only non-escaping TSSs, and within +/-125 bp to the TSS
+    cpg_promoter_df = pd.read_csv("../Methylation/Output_Files/chrX_non_escaping_CpG_promoter_islands.csv") #corresponding to only non-escaping TSSs, and within +/-125 bp to the TSS
     
     islands_of_interest = cpg_promoter_df['Composite Element REF'].tolist()
     
@@ -233,7 +233,7 @@ while www<len(full_class_list):
         l_total_TPM_list_auto.append(total_TPM)    
         
     XISTpos_samples_ratio_df = pd.DataFrame([df_high, h_median_list, h_median_list_auto]).T
-    XISTpos_samples_ratio_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/NEW_female_tumors_sample_level_methylation_XISTpos_samples.csv", index=False)
+    XISTpos_samples_ratio_df.to_csv("../Methylation/Output_Files/NEW_female_tumors_sample_level_methylation_XISTpos_samples.csv", index=False)
 
     low_ratio = []
     
@@ -243,7 +243,7 @@ while www<len(full_class_list):
         a=a+1       
 
     XISTpos_samples_ratio_df = pd.DataFrame([df_low, l_median_list, l_median_list_auto]).T
-    XISTpos_samples_ratio_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/NEW_female_tumors_sample_level_methylation_XISTneg_samples.csv", index=False)
+    XISTpos_samples_ratio_df.to_csv("../Methylation/Output_Files/NEW_female_tumors_sample_level_methylation_XISTneg_samples.csv", index=False)
 
     
     www=www+1
