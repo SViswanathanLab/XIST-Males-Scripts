@@ -1,4 +1,4 @@
-# Scripts for Computational Analyses of chrX Inactivation
+# Scripts for Computational Analyses of X Chromosome Inactivation
 
 These scripts are used in: "Somatic XIST activation and features of X chromosome inactivation in male human cancers" [Sadagopan A et al.]
 
