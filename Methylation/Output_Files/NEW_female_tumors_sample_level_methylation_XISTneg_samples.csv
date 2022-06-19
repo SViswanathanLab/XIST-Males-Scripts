@@ -1,4 +1,4 @@
-sample,chrX_non_escaping_promoter_CpG_islands_mean_beta,autosome_mean_beta,XIST_TPM,Classification,Secondary_Class
+sample,chrX_non_escaping_promoter_CpG_islands_median_beta,autosome_median_beta,XIST_TPM,Classification,Secondary_Class
 TCGA-KN-8431-01,0.177156166,0.065286919,2.070960447,KICH,
 TCGA-04-1542-01,0.094346209,0.039977008,1.000970877,OV,
 TCGA-25-1633-01,0.262396792,0.053826406,2.251052961,OV,
