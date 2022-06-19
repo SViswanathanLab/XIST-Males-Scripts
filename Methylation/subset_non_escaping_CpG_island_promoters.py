@@ -29,11 +29,11 @@ df_annot = df_annot[df_annot['Feature_Type']=="Island"]
 
 df_gene_class = pd.read_csv("../Methylation/Other_Input/25381334_escaping_and_nonescaping_TSSs_methylation.csv")
     
-#df_inactivated = df_gene_class[df_gene_class['450k_DNAm_status']=="subject to XCI in 27 tissues"]
-df_inactivated = df_gene_class[df_gene_class['450k_DNAm_status']=="escape from XCI in 27 tissues"]
+df_inactivated = df_gene_class[df_gene_class['450k_DNAm_status']=="subject to XCI in 27 tissues"]
+#df_inactivated = df_gene_class[df_gene_class['450k_DNAm_status']=="escape from XCI in 27 tissues"]
 
-#df_escaping = df_gene_class[~(df_gene_class['450k_DNAm_status']=="subject to XCI in 27 tissues")]
-df_escaping = df_gene_class[~(df_gene_class['450k_DNAm_status']=="escape from XCI in 27 tissues")]
+df_escaping = df_gene_class[~(df_gene_class['450k_DNAm_status']=="subject to XCI in 27 tissues")]
+#df_escaping = df_gene_class[~(df_gene_class['450k_DNAm_status']=="escape from XCI in 27 tissues")]
 
 inactivated_genes = df_inactivated['TSS_name'].tolist()
 
@@ -80,4 +80,4 @@ while w<len(compound_list):
     w=w+1
 
 df_out = df_annot[df_annot['Composite Element REF'].isin(islands_of_interest)]
-df_out.to_csv("../Methylation/Output_Files/chrX_escaping_CpG_promoter_islands.csv", index=False)
+df_out.to_csv("../Methylation/Output_Files/chrX_non_escaping_CpG_promoter_islands.csv", index=False)
