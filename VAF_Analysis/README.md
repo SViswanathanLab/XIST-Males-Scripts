@@ -12,7 +12,7 @@ Scripts associated with variant allele fraction analysis.
 
 (6) Run extract_count_all_chr.py. This script computes the VAF for the variants of interest using the WES and RNA-seq .bam files identified in the previous step. Specifically, DNA VAF was calculated as (alternative allele count) / (reference allele count + alternative allele count) in DNA, and RNA VAF was calculated as (alternative allele count) / (reference allele count + alternative allele count) in RNA.
 
-(7) Run separated_CCF_plots_chrX_CN_2_no_axis_break.py. This script calculates the CCF of each variant based on DNA VAF, TITAN copy number calls, and TITAN purity calls. It subsets to clonal variants (CCF = 1). Additionally, all variants with total depth (reference allele depth + alternative allele depth) < 20 reads for either DNA or RNA were excluded. Specify the plot type by modifying the following variables:
+(7) Run separated_CCF_plots_chrX_CN_2_no_axis_break.py. This script calculates the CCF of each variant based on DNA VAF, TITAN copy number calls, and TITAN purity calls. It subsets to clonal variants (CCF = 1). Additionally, all variants with total depth (reference allele depth + alternative allele depth) < 20 reads for either DNA or RNA are excluded. The script generates plots which have been included in the manuscript. One can specify the plot type by modifying the following variables:
 
 - gene_class (can be either "Escapee" or "Non-Escapee")
 - cn_to_analyze (can be either 1 or 2)
