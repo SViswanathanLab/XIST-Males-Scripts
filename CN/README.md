@@ -1,6 +1,6 @@
 - TCGA tumor + matched normal BAMs were downloaded from GDC for analysis. We used blood-derived matched normals, if possible. If a blood-derived normal was not available, a cancer-adjacent matched normal was used.
 - TITAN was used for copy number calls; jobs were submitted on the Broad Data Science servers using the wrapper script: wrapper.sh. This script runs TITAN over TCGA samples baitset by baitset.
-- Average chrX copy number per sample was calculated using the ploidy_match_TCGA_absolute_solution.py script across the TITAN results directory.
+- Mean chrX copy number per sample was calculated using the ploidy_match_TCGA_absolute_solution.py script across the TITAN results directory.
 
 Running instructions:
 
@@ -14,4 +14,4 @@ The wrapper script runs TITAN iterating baitset by baitset. It first runs TCGA_D
 
 (3) Run ploidy_match_TCGA_absolute_solution.py across the output directory
 
-This script matches TITAN ploidy/purity solutions to ABSOLUTE purity/ploidy solutions to select the best TITAN solution for TCGA samples.
+This script matches TITAN ploidy/purity solutions to ABSOLUTE purity/ploidy solutions to select the best TITAN solution for TCGA samples. It then calculates the mean chrX copy number per sample using the best TITAN copy number solution.
