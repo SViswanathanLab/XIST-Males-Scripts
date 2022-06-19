@@ -6,4 +6,4 @@ This script generates the list of non-escapee promoter CGIs to be analyzed. Non-
 
 (2) Generate median sample-level methylation values across non-escapee promoter CpG islands and autosomes (run files prefixed with: sample_level_methylation_summary_)
 
-These scripts iterate over all male or female samples, classify them into XIST+ or XIST-, then calculates, at the sample-level, the median beta value across all non-escapee promoter CGIs as well as across all autosomal probes.
+These scripts iterate over all male or female samples, classify them into XIST+ or XIST-, then calculate, at the sample-level, the median beta value across all non-escapee promoter CGIs as well as across all autosomal probes.
