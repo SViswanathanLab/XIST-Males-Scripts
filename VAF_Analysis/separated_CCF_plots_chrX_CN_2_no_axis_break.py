@@ -1193,9 +1193,9 @@ ax.text(0.07, 1, leq_point_5_ratio, transform=ax.transAxes,
 plt.subplots_adjust(wspace=0, hspace=0.3)
 
 if cn_to_analyze == 2:
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".png", dpi=dpi_set)
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".pdf", dpi=dpi_set)
+    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".png", dpi=dpi_set)
+    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".pdf", dpi=dpi_set)
 elif cn_to_analyze == 1:
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".png", dpi=dpi_set)
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".pdf", dpi=dpi_set)
+    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".png", dpi=dpi_set)
+    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".pdf", dpi=dpi_set)
 
