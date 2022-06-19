@@ -44,7 +44,7 @@ def myfunc(file1):
 
 
 nprocs = 64
-list1 = [x[0] for x in os.walk("download_dir/")]
+list1 = [x[0] for x in os.walk("temp_path/")]
 
 outfile = os.path.dirname(os.path.realpath(__file__)) #os.getcwd()
 outfile += '/myout.txt'
