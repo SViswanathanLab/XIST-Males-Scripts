@@ -48,14 +48,14 @@ dpi_set = 72 # change the output resolution
 sns.set(font_scale=1)
 
 gene_type = "ESCAPE"
-plot_type = "MALE"
+plot_type = "FEMALE"
 
 if gene_type == "NONESCAPE":
-    m_df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_NE_expression_TPM_geq0.csv")
-    f_df = pd.read_csv("../NE_to_E/Output_Files/skewness_female_tumors_normalized_NE_expression_TPM_geq0.csv")
+    m_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_NE_expression_TPM_geq0.csv")
+    f_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_tumors_normalized_NE_expression_TPM_geq0.csv")
 elif gene_type == "ESCAPE":
-    m_df = pd.read_csv("../NE_to_E/Output_Files/skewness_male_tumors_normalized_E_expression_TPM_geq0.csv")
-    f_df = pd.read_csv("../NE_to_E/Output_Files/skewness_female_tumors_normalized_E_expression_TPM_geq0.csv")
+    m_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_male_tumors_normalized_E_expression_TPM_geq0.csv")
+    f_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/skewness_female_tumors_normalized_E_expression_TPM_geq0.csv")
 
 m_gene_list = m_df['Unnamed: 0'].tolist()
 f_gene_list = f_df['Unnamed: 0'].tolist()
@@ -66,7 +66,7 @@ if m_gene_list != f_gene_list:
 m_cols = m_df.columns.tolist()
 f_cols = f_df.columns.tolist()
 
-df_ref = pd.read_csv("../NE_to_E/Output_Files/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
+df_ref = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/male_and_female_XIST_expression_TCGA_rev_Xena_TPM.csv")
 
 #df_ref = df_ref[df_ref['Classification'].isin(["OV"])]
 
@@ -102,7 +102,7 @@ lf_df[numeric_cols] = lf_df[numeric_cols].apply(lambda x: 2**x)
 
 
 
-df_RNA_temp = pd.read_csv("../NE_to_E/Other_Input/gene_id_name_chr_chrX_biomart.csv")
+df_RNA_temp = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/gene_id_name_chr_chrX_biomart.csv")
 
 location = df_RNA_temp['Gene start (bp hg19)'].tolist()
 gene_symbol = df_RNA_temp['Gene name'].tolist()
@@ -133,12 +133,31 @@ fig = plt.figure()
 
 gene_list2 = []
 
+unprocessed_values_unp = hm_df_mean
+
+unprocessed_values = []
+
+for a in unprocessed_values_unp:
+    unprocessed_values.append(math.log(a, 2))
+
+mean = sum(unprocessed_values) / len(unprocessed_values) 
+variance = sum([((x - mean) ** 2) for x in unprocessed_values]) / (len(unprocessed_values)-1) 
+standard_dev1 = variance**0.5
+
+print(mean)
+print(standard_dev1)
+
+high_cutoff = mean + 3*standard_dev1
+low_cutoff = mean - 3*standard_dev1
+
+high_cutoff = 2**high_cutoff
+low_cutoff = 2**low_cutoff
+
 q=0
 while q<len(lm_df_mean):
-    if hm_df_mean[q] <= 2 and hm_df_mean[q] >= 0.5:
+    if hm_df_mean[q] <= high_cutoff and hm_df_mean[q] >= low_cutoff:
         gene_list2.append(m_gene_list[q])
     q=q+1
-
 
 males_invalid = np.setdiff1d(m_gene_list, gene_list2)
 print(len(males_invalid))
@@ -146,9 +165,30 @@ print(len(m_gene_list))
 
 gene_list3 = []
 
+
+unprocessed_values_unp = lf_df_mean
+
+unprocessed_values = []
+
+for a in unprocessed_values_unp:
+    unprocessed_values.append(math.log(a, 2))
+
+mean = sum(unprocessed_values) / len(unprocessed_values) 
+variance = sum([((x - mean) ** 2) for x in unprocessed_values]) / (len(unprocessed_values)-1) 
+standard_dev2 = variance**0.5
+
+print(mean)
+print(standard_dev2)
+
+high_cutoff2 = mean + 3*standard_dev2
+low_cutoff2 = mean - 3*standard_dev2
+
+high_cutoff2 = 2**high_cutoff2
+low_cutoff2 = 2**low_cutoff2
+
 q=0
 while q<len(hf_df_mean):
-    if lf_df_mean[q] <= 2 and lf_df_mean[q] >= 0.5:
+    if lf_df_mean[q] <= high_cutoff2 and lf_df_mean[q] >= low_cutoff2:
         gene_list3.append(m_gene_list[q])
     q=q+1
 
@@ -160,9 +200,9 @@ valid_genes_df = pd.DataFrame([gene_list2, gene_list3]).T
 valid_genes_df.columns = ['XISTneg_male_ref', 'XISTpos_female_ref']
 
 if gene_type == "NONESCAPE":
-    valid_genes_df.to_csv("../NE_to_E/Output_Files/ne_valid_genes_0.5_to_2_cutoff.csv", index=False)
+    valid_genes_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/ne_valid_genes_0.5_to_2_cutoff.csv", index=False)
 elif gene_type == "ESCAPE":
-    valid_genes_df.to_csv("../NE_to_E/Output_Files/e_valid_genes_0.5_to_2_cutoff.csvv", index=False)
+    valid_genes_df.to_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/e_valid_genes_0.5_to_2_cutoff.csv", index=False)
 
 
 if plot_type == "FEMALE":
@@ -226,13 +266,31 @@ plt.xlabel("hg38 Genomic Location on chrX")
     
 plt.ylabel("Average Normalized Gene Expression")
 
-plt.axhline(0.5, c="black", ls="--", lw=0.4)
-plt.axhline(2, c="black", ls="--", lw=0.4)
+if plot_type == "FEMALE":
+
+    plt.axhline(low_cutoff2, c="black", ls="--", lw=0.4)
+    plt.axhline(high_cutoff2, c="black", ls="--", lw=0.4) 
+
+elif plot_type == "MALE":
+
+    plt.axhline(low_cutoff, c="black", ls="--", lw=0.4)
+    plt.axhline(high_cutoff, c="black", ls="--", lw=0.4)    
 
 fig.tight_layout()
 
 dpi_set = 72
 plt.tick_params(bottom='on', left='on')
+
+if gene_type == "NONESCAPE" and plot_type == "FEMALE":
+    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_ne_expression_vs_chrX_location_female.pdf", dpi=dpi_set, bbox_inches = 'tight')
+elif gene_type == "ESCAPE" and plot_type == "FEMALE":
+    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_e_expression_vs_chrX_location_female.pdf", dpi=dpi_set, bbox_inches = 'tight')
+elif gene_type == "NONESCAPE" and plot_type == "MALE":
+    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_ne_expression_vs_chrX_location_male.pdf", dpi=dpi_set, bbox_inches = 'tight')
+elif gene_type == "ESCAPE" and plot_type == "MALE":
+    fig.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/normalized_e_expression_vs_chrX_location_male.pdf", dpi=dpi_set, bbox_inches = 'tight')
+
+
 
 
 
