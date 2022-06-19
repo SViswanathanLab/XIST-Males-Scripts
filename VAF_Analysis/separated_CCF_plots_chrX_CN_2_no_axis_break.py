@@ -30,7 +30,7 @@ sns.set(rc={'figure.figsize':(3.61*4.41/2.396,4.41)})
 sns.set(font_scale=0.6)
 dpi_set = 72
 
-DNA_CCF_cutoff = 2
+DNA_CCF_cutoff = 1
 
 #gene_class = "Non-Escapee"
 gene_class = "Escapee"
