@@ -31,12 +31,10 @@ sns.set(font_scale=0.6)
 dpi_set = 72
 
 DNA_CCF_cutoff = 1
-ui_cutoff = 0.5
 
 gene_class = "Non-Escapee"
 #gene_class = "Escapee"
 cn_to_analyze = 1
-purity_cutoff = 0.1
 
 n_cutoff = 0.15
 n_iterations = 100000
@@ -45,22 +43,7 @@ def split_advanced(strng, sep, pos):
     strng = strng.split(sep)
     return sep.join(strng[:pos]), sep.join(strng[pos:])
 
-df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/merged_TITAN_best_solutions.txt", sep="\t")
-df = df[df['Sample']!="Sample"]
-
-invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
-
-for a in invalid_ids:
-    df = df[~(df['Sample'].str.contains(a))]
-
-df['Start'] = df['Start'].astype("float64")
-df['End'] = df['End'].astype("float64")
-df['Corrected_Copy_Number'] = df['Corrected_Copy_Number'].astype("float64")
-
-df_seg = df
-df_seg = df_seg[df_seg['Chromosome']=="X"]
-
-cn_df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/TITAN_final_solutions_plus_annotations.csv")
+cn_df = pd.read_csv("../VAF_Analysis/Other_Input/TITAN_final_solutions_plus_annotations.csv")
 
 purity_dict = dict(zip(cn_df['Sub_ID'],cn_df['TITAN_purity']))
 
@@ -81,7 +64,7 @@ for a in unp_samples:
     cn_select_samples.append(a.split("_")[0])
 
 PAR_genes = ['PLCXD1', 'GTPBP6', 'PPP2R3B', 'SHOX', 'CRLF2', 'CSF2RA', 'IL3RA', 'SLC25A6', 'ASMTL', 'P2RY8', 'CXYorf3', 'AKAP17A', 'ASMT', 'DHRSXY', 'ZBED1', 'CD99', 'XG']
-df_gene_class = pd.read_excel("/Users/ananthansadagopan/Documents/ViswanathanLab/CCLE/chrX_gene_classes.xlsx")
+df_gene_class = pd.read_excel("../VAF_Analysis/Other_Input/chrX_gene_classes.xlsx")
 PAR_genes = [x for x in df_gene_class['Escaping_with_PARs'].tolist() if x == x]
 non_escapee = [x for x in df_gene_class['Inactivated'].tolist() if x == x]
 
@@ -92,170 +75,179 @@ elif gene_class == "Non-Escapee":
 
 bins_list = np.arange(0,4.02,0.02)
 
+df = pd.read_csv("../VAF_Analysis/Other_Input/merged_TITAN_best_solutions.txt", sep="\t")
+df = df[df['Sample']!="Sample"]
+
+invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+
+for a in invalid_ids:
+    df = df[~(df['Sample'].str.contains(a))]
+
+df['Start'] = df['Start'].astype("float64")
+df['End'] = df['End'].astype("float64")
+df['Corrected_Copy_Number'] = df['Corrected_Copy_Number'].astype("float64")
+
+df_seg = df
+df_seg = df_seg[df_seg['Chromosome']=="X"]
+
 final_name = "XISTpos_females"
-fname = "/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/out_" + final_name + "_" + gene_class + "_chrX_CN" + str(cn_to_analyze) + ".csv"
 
-if os.path.isfile(fname):
-    df = pd.read_csv(fname)
-else:
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
-    invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
+invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
 
-    df = df[(df['Hugo_Symbol'].isin(genes_of_interest))]   
-    df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
+df = df[(df['Hugo_Symbol'].isin(genes_of_interest))]   
+df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
 
-    for a in invalid_ids:
-        df = df[~(df['Truncated_Barcodes'].str.contains(a))]
+for a in invalid_ids:
+    df = df[~(df['Truncated_Barcodes'].str.contains(a))]
 
-    secondary_barcodes = []
+secondary_barcodes = []
 
-    for a in df['Truncated_Barcodes'].tolist():
-        secondary_barcodes.append(split_advanced(a, "-", 3)[0])
+for a in df['Truncated_Barcodes'].tolist():
+    secondary_barcodes.append(split_advanced(a, "-", 3)[0])
 
-    df['Secondary_Barcodes'] = secondary_barcodes
+df['Secondary_Barcodes'] = secondary_barcodes
 
-    df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
+df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
 
 
-    df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
-    df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
-    df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
+df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
+df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
+df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
 
-    cutoff = 20
+cutoff = 20
 
-    df = df[df['total_RNA_counts']>=cutoff]
-    df = df[df['total_DNA_counts']>=cutoff]
+df = df[df['total_RNA_counts']>=cutoff]
+df = df[df['total_DNA_counts']>=cutoff]
 
-    #df = df[df['DNA_VAF_purity_ratio']>=0.4]
+#df = df[df['DNA_VAF_purity_ratio']>=0.4]
 
-    """
-    df = df[df['RNA_alt_counts']>=cutoff]
-    df = df[df['RNA_ref_counts']>=cutoff]
-    df = df[df['DNA_alt_counts']>=cutoff]
-    df = df[df['DNA_ref_counts']>=cutoff]
-    """
+"""
+df = df[df['RNA_alt_counts']>=cutoff]
+df = df[df['RNA_ref_counts']>=cutoff]
+df = df[df['DNA_alt_counts']>=cutoff]
+df = df[df['DNA_ref_counts']>=cutoff]
+"""
 
-    if final_name == "XISTpos_males" or final_name == "XISTpos_females":
-        df = df[df['XIST_positive_1_is_yes']==1]
-    elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
-        df = df[df['XIST_positive_1_is_yes']==0]
+if final_name == "XISTpos_males" or final_name == "XISTpos_females":
+    df = df[df['XIST_positive_1_is_yes']==1]
+elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
+    df = df[df['XIST_positive_1_is_yes']==0]
 
-    df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
+df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
 
-    ids = df['Truncated_Barcodes'].tolist()
-    start = df['Start_Position'].tolist()
+ids = df['Truncated_Barcodes'].tolist()
+start = df['Start_Position'].tolist()
 
-    cn_temp = []
+cn_temp = []
 
-    print(len(ids))
+print(len(ids))
 
-    new_purity = []
+new_purity = []
 
-    a=0
-    while a<len(ids):
-        temp_id = split_advanced(ids[a], "-", 3)[0]
-        new_purity.append(purity_dict[temp_id])
-        temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
-        start_vals = temp_df['Start'].tolist()
-        cn_vals = temp_df['Corrected_Copy_Number'].tolist()
-        q=0
-        while (q-1)<len(start_vals):
-            if q == len(start_vals):
-                cn_temp.append(cn_vals[q-1])
-                break
-            elif start[a] > start_vals[q]:
-                q=q+1
-            else:
-                cn_temp.append(cn_vals[q-1])
-                break
-        a=a+1
-        if a % 100 == 0:
-            print(a)
-
-    df['Purity'] = new_purity
-    df['CN_temp'] = cn_temp
-
-    #CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
-
-    DNA_VAF = df['DNA_VAF'].tolist()
-    RNA_VAF = df['RNA_VAF'].tolist()
-    purity = df['Purity'].tolist()
-
-    DNA_CCF = []
-    RNA_CCF = []
-    DNA_ui = []
-    RNA_ui = []
-    DNA_multiplicity = []
-    RNA_multiplicity = []
-
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        normal_cn = 1
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        normal_cn = 2
-
-    a=0
-    while a<len(cn_temp):
-        temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-        temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-
-        DNA_ui.append(temp_DNA_ui)
-        RNA_ui.append(temp_RNA_ui)    
-
-        if temp_DNA_ui >= 1:
-            DNA_multiplicity.append(temp_DNA_ui)
-            DNA_CCF.append(1)
+a=0
+while a<len(ids):
+    temp_id = split_advanced(ids[a], "-", 3)[0]
+    new_purity.append(purity_dict[temp_id])
+    temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
+    start_vals = temp_df['Start'].tolist()
+    cn_vals = temp_df['Corrected_Copy_Number'].tolist()
+    q=0
+    while (q-1)<len(start_vals):
+        if q == len(start_vals):
+            cn_temp.append(cn_vals[q-1])
+            break
+        elif start[a] > start_vals[q]:
+            q=q+1
         else:
-            DNA_multiplicity.append(1)
-            DNA_CCF.append(temp_DNA_ui)
+            cn_temp.append(cn_vals[q-1])
+            break
+    a=a+1
+    if a % 100 == 0:
+        print(a)
 
-        if temp_RNA_ui >= 1:
-            RNA_multiplicity.append(temp_RNA_ui)
-            RNA_CCF.append(1)
-        else:
-            RNA_multiplicity.append(1)
-            RNA_CCF.append(temp_RNA_ui)
+df['Purity'] = new_purity
+df['CN_temp'] = cn_temp
 
-        a=a+1
+#CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
 
-    df['DNA_ui'] = DNA_ui
-    df['RNA_ui'] = RNA_ui
-    df['DNA_multiplicity'] = DNA_multiplicity
-    df['RNA_multiplicity'] = RNA_multiplicity
-    df['DNA_CCF'] = DNA_CCF
-    df['RNA_CCF'] = RNA_CCF
+DNA_VAF = df['DNA_VAF'].tolist()
+RNA_VAF = df['RNA_VAF'].tolist()
+purity = df['Purity'].tolist()
 
-    #df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
+DNA_CCF = []
+RNA_CCF = []
+DNA_ui = []
+RNA_ui = []
+DNA_multiplicity = []
+RNA_multiplicity = []
 
-    print("SNV count")
-    print(len(df.index.tolist()))
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    normal_cn = 1
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    normal_cn = 2
 
-    df.to_csv(fname, index=False)
+a=0
+while a<len(cn_temp):
+    temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+    temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+
+    DNA_ui.append(temp_DNA_ui)
+    RNA_ui.append(temp_RNA_ui)    
+
+    if temp_DNA_ui >= 1:
+        DNA_multiplicity.append(temp_DNA_ui)
+        DNA_CCF.append(1)
+    else:
+        DNA_multiplicity.append(1)
+        DNA_CCF.append(temp_DNA_ui)
+
+    if temp_RNA_ui >= 1:
+        RNA_multiplicity.append(temp_RNA_ui)
+        RNA_CCF.append(1)
+    else:
+        RNA_multiplicity.append(1)
+        RNA_CCF.append(temp_RNA_ui)
+
+    a=a+1
+
+df['DNA_ui'] = DNA_ui
+df['RNA_ui'] = RNA_ui
+df['DNA_multiplicity'] = DNA_multiplicity
+df['RNA_multiplicity'] = RNA_multiplicity
+df['DNA_CCF'] = DNA_CCF
+df['RNA_CCF'] = RNA_CCF
+
+#df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
+
+print("SNV count")
+print(len(df.index.tolist()))
 
 #df = df[df['Variant_Classification'].isin(['Silent'])]
 
 df = df[df['Hugo_Symbol']!="MXRA5"]
-df = df[df['Purity']>purity_cutoff]
+df = df[df['Purity']>0.1]
 df = df[df['DNA_ui']>=ui_cutoff]
 
 xs = df['DNA_VAF'].tolist()
 ys = df['RNA_VAF'].tolist()
 
 if len(xs) != len(ys):
-    print("ERROR")
+print("ERROR")
 
 ratio_list = []
 
 b=0
 while b<len(xs):
-    try:
-        ratio_list.append(ys[b]/xs[b])
-    except ZeroDivisionError:
-        b=b+1
-        continue
+try:
+    ratio_list.append(ys[b]/xs[b])
+except ZeroDivisionError:
     b=b+1
+    continue
+b=b+1
 
 n_bins = 100
 
@@ -326,146 +318,140 @@ plt.ylabel("Number of Variants")
 
 
 final_name = "XISTneg_females"
-fname = "/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/out_" + final_name + "_" + gene_class + "_chrX_CN" + str(cn_to_analyze) + ".csv"
 
-if os.path.isfile(fname):
-    df = pd.read_csv(fname)
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
+
+invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+
+df = df[(df['Hugo_Symbol'].isin(genes_of_interest))]
+df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
+
+for a in invalid_ids:
+    df = df[~(df['Truncated_Barcodes'].str.contains(a))]
+
+secondary_barcodes = []
+
+for a in df['Truncated_Barcodes'].tolist():
+    secondary_barcodes.append(split_advanced(a, "-", 3)[0])
+
+df['Secondary_Barcodes'] = secondary_barcodes
+
+df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
+
+df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
+df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
+df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
+
+cutoff = 20
+
+df = df[df['total_RNA_counts']>=cutoff]
+df = df[df['total_DNA_counts']>=cutoff]
+
+#df = df[df['DNA_VAF_purity_ratio']>=0.4]
+
+"""
+df = df[df['RNA_alt_counts']>=cutoff]
+df = df[df['RNA_ref_counts']>=cutoff]
+df = df[df['DNA_alt_counts']>=cutoff]
+df = df[df['DNA_ref_counts']>=cutoff]
+"""
+
+if final_name == "XISTpos_males" or final_name == "XISTpos_females":
+    df = df[df['XIST_positive_1_is_yes']==1]
+elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
+    df = df[df['XIST_positive_1_is_yes']==0]
+
+df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
+#df = df[df['Variant_Classification'].isin(['Silent'])]
+
+ids = df['Truncated_Barcodes'].tolist()
+start = df['Start_Position'].tolist()
+
+cn_temp = []
+
+new_purity = []
+
+a=0
+while a<len(ids):
+    temp_id = split_advanced(ids[a], "-", 3)[0]
+    new_purity.append(purity_dict[temp_id])
+    temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
+    start_vals = temp_df['Start'].tolist()
+    cn_vals = temp_df['Corrected_Copy_Number'].tolist()
+    q=0
+    while (q-1)<len(start_vals):
+        if q == len(start_vals):
+            cn_temp.append(cn_vals[q-1])
+            break
+        elif start[a] > start_vals[q]:
+            q=q+1
+        else:
+            cn_temp.append(cn_vals[q-1])
+            break
+    a=a+1
+    if a % 100 == 0:
+        print(a)
+
+df['Purity'] = new_purity
+df['CN_temp'] = cn_temp
+
+#CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
+
+DNA_VAF = df['DNA_VAF'].tolist()
+RNA_VAF = df['RNA_VAF'].tolist()
+purity = df['Purity'].tolist()
+
+DNA_CCF = []
+RNA_CCF = []
+DNA_ui = []
+RNA_ui = []
+DNA_multiplicity = []
+RNA_multiplicity = []
+
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    normal_cn = 1
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    normal_cn = 2
+
+a=0
+while a<len(cn_temp):
+    temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+    temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+
+    DNA_ui.append(temp_DNA_ui)
+    RNA_ui.append(temp_RNA_ui)    
+
+    if temp_DNA_ui >= 1:
+        DNA_multiplicity.append(temp_DNA_ui)
+        DNA_CCF.append(1)
+    else:
+    DNA_multiplicity.append(1)
+    DNA_CCF.append(temp_DNA_ui)
+
+if temp_RNA_ui >= 1:
+    RNA_multiplicity.append(temp_RNA_ui)
+    RNA_CCF.append(1)
 else:
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
-        
-    invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+    RNA_multiplicity.append(1)
+    RNA_CCF.append(temp_RNA_ui)
 
-    df = df[(df['Hugo_Symbol'].isin(genes_of_interest))]
-    df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
+a=a+1
 
-    for a in invalid_ids:
-        df = df[~(df['Truncated_Barcodes'].str.contains(a))]
+df['DNA_ui'] = DNA_ui
+df['RNA_ui'] = RNA_ui
+df['DNA_multiplicity'] = DNA_multiplicity
+df['RNA_multiplicity'] = RNA_multiplicity
+df['DNA_CCF'] = DNA_CCF
+df['RNA_CCF'] = RNA_CCF
 
-    secondary_barcodes = []
-
-    for a in df['Truncated_Barcodes'].tolist():
-        secondary_barcodes.append(split_advanced(a, "-", 3)[0])
-
-    df['Secondary_Barcodes'] = secondary_barcodes
-
-    df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
-
-    df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
-    df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
-    df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
-
-    cutoff = 20
-
-    df = df[df['total_RNA_counts']>=cutoff]
-    df = df[df['total_DNA_counts']>=cutoff]
-
-    #df = df[df['DNA_VAF_purity_ratio']>=0.4]
-
-    """
-    df = df[df['RNA_alt_counts']>=cutoff]
-    df = df[df['RNA_ref_counts']>=cutoff]
-    df = df[df['DNA_alt_counts']>=cutoff]
-    df = df[df['DNA_ref_counts']>=cutoff]
-    """
-
-    if final_name == "XISTpos_males" or final_name == "XISTpos_females":
-        df = df[df['XIST_positive_1_is_yes']==1]
-    elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
-        df = df[df['XIST_positive_1_is_yes']==0]
-
-    df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
-    #df = df[df['Variant_Classification'].isin(['Silent'])]
-
-    ids = df['Truncated_Barcodes'].tolist()
-    start = df['Start_Position'].tolist()
-
-    cn_temp = []
-
-    new_purity = []
-
-    a=0
-    while a<len(ids):
-        temp_id = split_advanced(ids[a], "-", 3)[0]
-        new_purity.append(purity_dict[temp_id])
-        temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
-        start_vals = temp_df['Start'].tolist()
-        cn_vals = temp_df['Corrected_Copy_Number'].tolist()
-        q=0
-        while (q-1)<len(start_vals):
-            if q == len(start_vals):
-                cn_temp.append(cn_vals[q-1])
-                break
-            elif start[a] > start_vals[q]:
-                q=q+1
-            else:
-                cn_temp.append(cn_vals[q-1])
-                break
-        a=a+1
-        if a % 100 == 0:
-            print(a)
-
-    df['Purity'] = new_purity
-    df['CN_temp'] = cn_temp
-
-    #CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
-
-    DNA_VAF = df['DNA_VAF'].tolist()
-    RNA_VAF = df['RNA_VAF'].tolist()
-    purity = df['Purity'].tolist()
-
-    DNA_CCF = []
-    RNA_CCF = []
-    DNA_ui = []
-    RNA_ui = []
-    DNA_multiplicity = []
-    RNA_multiplicity = []
-
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        normal_cn = 1
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        normal_cn = 2
-
-    a=0
-    while a<len(cn_temp):
-        temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-        temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-
-        DNA_ui.append(temp_DNA_ui)
-        RNA_ui.append(temp_RNA_ui)    
-
-        if temp_DNA_ui >= 1:
-            DNA_multiplicity.append(temp_DNA_ui)
-            DNA_CCF.append(1)
-        else:
-            DNA_multiplicity.append(1)
-            DNA_CCF.append(temp_DNA_ui)
-
-        if temp_RNA_ui >= 1:
-            RNA_multiplicity.append(temp_RNA_ui)
-            RNA_CCF.append(1)
-        else:
-            RNA_multiplicity.append(1)
-            RNA_CCF.append(temp_RNA_ui)
-
-        a=a+1
-
-    df['DNA_ui'] = DNA_ui
-    df['RNA_ui'] = RNA_ui
-    df['DNA_multiplicity'] = DNA_multiplicity
-    df['RNA_multiplicity'] = RNA_multiplicity
-    df['DNA_CCF'] = DNA_CCF
-    df['RNA_CCF'] = RNA_CCF
-
-    #df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
-
-    df.to_csv(fname, index=False)
+#df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
 
 #df = df[df['Variant_Classification'].isin(['Silent'])]
 df = df[df['Hugo_Symbol']!="MXRA5"]
-df = df[df['Purity']>purity_cutoff]
+df = df[df['Purity']>0.1]
 df = df[df['DNA_ui']>=ui_cutoff]
 
 xs = df['DNA_VAF'].tolist()
@@ -552,150 +538,142 @@ sns.set(rc={'figure.figsize':(5,5)})
 sns.set(font_scale=1)
 dpi_set = 72
 
-final_name = "XISTpos_males"
-fname = "/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/out_" + final_name + "_" + gene_class + "_chrX_CN" + str(cn_to_analyze) + ".csv"
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
 
-if os.path.isfile(fname):
-    df = pd.read_csv(fname)
-else:
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
-    
-    df = df[(df['Hugo_Symbol'].isin(genes_of_interest))] 
-    df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
-    
-    invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+df = df[(df['Hugo_Symbol'].isin(genes_of_interest))] 
+df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
 
-    for a in invalid_ids:
-        df = df[~(df['Truncated_Barcodes'].str.contains(a))]
+invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
 
-    secondary_barcodes = []
+for a in invalid_ids:
+    df = df[~(df['Truncated_Barcodes'].str.contains(a))]
 
-    for a in df['Truncated_Barcodes'].tolist():
-        secondary_barcodes.append(split_advanced(a, "-", 3)[0])
+secondary_barcodes = []
 
-    df['Secondary_Barcodes'] = secondary_barcodes
+for a in df['Truncated_Barcodes'].tolist():
+    secondary_barcodes.append(split_advanced(a, "-", 3)[0])
 
-    df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
+df['Secondary_Barcodes'] = secondary_barcodes
 
-    df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
-    df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
-    df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
+df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
 
-    cutoff = 20
+df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
+df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
+df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
 
-    df = df[df['total_RNA_counts']>=cutoff]
-    df = df[df['total_DNA_counts']>=cutoff]
+cutoff = 20
 
-    #df = df[df['DNA_VAF_purity_ratio']>=0.4]
+df = df[df['total_RNA_counts']>=cutoff]
+df = df[df['total_DNA_counts']>=cutoff]
 
-    """
-    df = df[df['RNA_alt_counts']>=cutoff]
-    df = df[df['RNA_ref_counts']>=cutoff]
-    df = df[df['DNA_alt_counts']>=cutoff]
-    df = df[df['DNA_ref_counts']>=cutoff]
-    """
+#df = df[df['DNA_VAF_purity_ratio']>=0.4]
 
-    if final_name == "XISTpos_males" or final_name == "XISTpos_females":
-        df = df[df['XIST_positive_1_is_yes']==1]
-    elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
-        df = df[df['XIST_positive_1_is_yes']==0]
+"""
+df = df[df['RNA_alt_counts']>=cutoff]
+df = df[df['RNA_ref_counts']>=cutoff]
+df = df[df['DNA_alt_counts']>=cutoff]
+df = df[df['DNA_ref_counts']>=cutoff]
+"""
 
-    df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
-    #df = df[df['Variant_Classification'].isin(['Silent'])]
+if final_name == "XISTpos_males" or final_name == "XISTpos_females":
+    df = df[df['XIST_positive_1_is_yes']==1]
+elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
+    df = df[df['XIST_positive_1_is_yes']==0]
 
-    ids = df['Truncated_Barcodes'].tolist()
-    start = df['Start_Position'].tolist()
+df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
+#df = df[df['Variant_Classification'].isin(['Silent'])]
 
-    cn_temp = []
+ids = df['Truncated_Barcodes'].tolist()
+start = df['Start_Position'].tolist()
 
-    print(len(ids))
+cn_temp = []
 
-    new_purity = []
+print(len(ids))
 
-    a=0
-    while a<len(ids):
-        temp_id = split_advanced(ids[a], "-", 3)[0]
-        new_purity.append(purity_dict[temp_id])
-        temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
-        start_vals = temp_df['Start'].tolist()
-        cn_vals = temp_df['Corrected_Copy_Number'].tolist()
-        q=0
-        while (q-1)<len(start_vals):
-            if q == len(start_vals):
-                cn_temp.append(cn_vals[q-1])
-                break
-            elif start[a] > start_vals[q]:
-                q=q+1
-            else:
-                cn_temp.append(cn_vals[q-1])
-                break
-        a=a+1
-        if a % 100 == 0:
-            print(a)
+new_purity = []
 
-    df['Purity'] = new_purity
-    df['CN_temp'] = cn_temp
-
-
-    #CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
-
-    DNA_VAF = df['DNA_VAF'].tolist()
-    RNA_VAF = df['RNA_VAF'].tolist()
-    purity = df['Purity'].tolist()
-
-    DNA_CCF = []
-    RNA_CCF = []
-    DNA_ui = []
-    RNA_ui = []
-    DNA_multiplicity = []
-    RNA_multiplicity = []
-
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        normal_cn = 1
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        normal_cn = 2
-
-    a=0
-    while a<len(cn_temp):
-        temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-        temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-
-        DNA_ui.append(temp_DNA_ui)
-        RNA_ui.append(temp_RNA_ui)    
-
-        if temp_DNA_ui >= 1:
-            DNA_multiplicity.append(temp_DNA_ui)
-            DNA_CCF.append(1)
+a=0
+while a<len(ids):
+    temp_id = split_advanced(ids[a], "-", 3)[0]
+    new_purity.append(purity_dict[temp_id])
+    temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
+    start_vals = temp_df['Start'].tolist()
+    cn_vals = temp_df['Corrected_Copy_Number'].tolist()
+    q=0
+    while (q-1)<len(start_vals):
+        if q == len(start_vals):
+            cn_temp.append(cn_vals[q-1])
+            break
+        elif start[a] > start_vals[q]:
+            q=q+1
         else:
-            DNA_multiplicity.append(1)
-            DNA_CCF.append(temp_DNA_ui)
+            cn_temp.append(cn_vals[q-1])
+            break
+    a=a+1
+    if a % 100 == 0:
+        print(a)
 
-        if temp_RNA_ui >= 1:
-            RNA_multiplicity.append(temp_RNA_ui)
-            RNA_CCF.append(1)
-        else:
-            RNA_multiplicity.append(1)
-            RNA_CCF.append(temp_RNA_ui)
+df['Purity'] = new_purity
+df['CN_temp'] = cn_temp
 
-        a=a+1
 
-    df['DNA_ui'] = DNA_ui
-    df['RNA_ui'] = RNA_ui
-    df['DNA_multiplicity'] = DNA_multiplicity
-    df['RNA_multiplicity'] = RNA_multiplicity
-    df['DNA_CCF'] = DNA_CCF
-    df['RNA_CCF'] = RNA_CCF
+#CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
 
-    #df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
+DNA_VAF = df['DNA_VAF'].tolist()
+RNA_VAF = df['RNA_VAF'].tolist()
+purity = df['Purity'].tolist()
 
-    df.to_csv(fname, index=False)
+DNA_CCF = []
+RNA_CCF = []
+DNA_ui = []
+RNA_ui = []
+DNA_multiplicity = []
+RNA_multiplicity = []
+
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    normal_cn = 1
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    normal_cn = 2
+
+a=0
+while a<len(cn_temp):
+    temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+    temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+
+    DNA_ui.append(temp_DNA_ui)
+    RNA_ui.append(temp_RNA_ui)    
+
+    if temp_DNA_ui >= 1:
+        DNA_multiplicity.append(temp_DNA_ui)
+        DNA_CCF.append(1)
+    else:
+        DNA_multiplicity.append(1)
+        DNA_CCF.append(temp_DNA_ui)
+
+    if temp_RNA_ui >= 1:
+        RNA_multiplicity.append(temp_RNA_ui)
+        RNA_CCF.append(1)
+    else:
+        RNA_multiplicity.append(1)
+        RNA_CCF.append(temp_RNA_ui)
+
+    a=a+1
+
+df['DNA_ui'] = DNA_ui
+df['RNA_ui'] = RNA_ui
+df['DNA_multiplicity'] = DNA_multiplicity
+df['RNA_multiplicity'] = RNA_multiplicity
+df['DNA_CCF'] = DNA_CCF
+df['RNA_CCF'] = RNA_CCF
+
+#df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
 
 #df = df[df['Variant_Classification'].isin(['Silent'])]
 df = df[df['Hugo_Symbol']!="MXRA5"]
-df = df[df['Purity']>purity_cutoff]
+df = df[df['Purity']>0.1]
 df = df[df['DNA_ui']>=ui_cutoff]
 
 xs = df['DNA_VAF'].tolist()
@@ -782,150 +760,143 @@ sns.set(rc={'figure.figsize':(5,5)})
 sns.set(font_scale=1)
 dpi_set = 72
 
-final_name = "XISTneg_males"
-fname = "/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/out_" + final_name + "_" + gene_class + "_chrX_CN" + str(cn_to_analyze) + ".csv"
 
-if os.path.isfile(fname):
-    df = pd.read_csv(fname)
-else:
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        df = pd.read_csv("/Users/ananthansadagopan/Documents/ViswanathanLab/full_TCGA/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
-        
-    invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_males_unaveraged_TPM_geq2.csv")    
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    df = pd.read_csv("../VAF_Analysis/Other_Input/IMRAN_output_chrX_muts_REVISED_females_unaveraged_TPM_geq2.csv")
 
-    df = df[(df['Hugo_Symbol'].isin(genes_of_interest))] 
-    df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
+invalid_ids = ['TCGA-BP-4974','TCGA-EL-A3T3', 'TCGA-GL-7773', 'TCGA-KO-8403', 'TCGA-M9-A5M8', 'TCGA-98-7454', 'TCGA-G3-A5SM', 'TCGA-AB-2872', 'TCGA-B0-4696', 'TCGA-B0-4846', 'TCGA-CJ-4642', 'TCGA-CV-7428', 'TCGA-CZ-4862']
 
-    for a in invalid_ids:
-        df = df[~(df['Truncated_Barcodes'].str.contains(a))]
+df = df[(df['Hugo_Symbol'].isin(genes_of_interest))] 
+df.drop_duplicates(subset=['Hugo_Symbol','Start_Position','Tumor_Sample_Barcode'], keep="first", inplace=True)
 
-    secondary_barcodes = []
+for a in invalid_ids:
+    df = df[~(df['Truncated_Barcodes'].str.contains(a))]
 
-    for a in df['Truncated_Barcodes'].tolist():
-        secondary_barcodes.append(split_advanced(a, "-", 3)[0])
+secondary_barcodes = []
 
-    df['Secondary_Barcodes'] = secondary_barcodes
+for a in df['Truncated_Barcodes'].tolist():
+    secondary_barcodes.append(split_advanced(a, "-", 3)[0])
 
-    df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
+df['Secondary_Barcodes'] = secondary_barcodes
+
+df = df[df['Truncated_Barcodes'].isin(cn_select_samples)]
 
 
-    df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
-    df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
-    df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
+df['total_RNA_counts'] = df['RNA_alt_counts'] + df['RNA_ref_counts']
+df['total_DNA_counts'] = df['DNA_alt_counts'] + df['DNA_ref_counts']
+df['DNA_VAF_purity_ratio'] = df['DNA_VAF']/df['Purity']
 
-    cutoff = 20
+cutoff = 20
 
-    df = df[df['total_RNA_counts']>=cutoff]
-    df = df[df['total_DNA_counts']>=cutoff]
+df = df[df['total_RNA_counts']>=cutoff]
+df = df[df['total_DNA_counts']>=cutoff]
 
-    #df = df[df['DNA_VAF_purity_ratio']>=0.4]
+#df = df[df['DNA_VAF_purity_ratio']>=0.4]
 
-    """
-    df = df[df['RNA_alt_counts']>=cutoff]
-    df = df[df['RNA_ref_counts']>=cutoff]
-    df = df[df['DNA_alt_counts']>=cutoff]
-    df = df[df['DNA_ref_counts']>=cutoff]
-    """
+"""
+df = df[df['RNA_alt_counts']>=cutoff]
+df = df[df['RNA_ref_counts']>=cutoff]
+df = df[df['DNA_alt_counts']>=cutoff]
+df = df[df['DNA_ref_counts']>=cutoff]
+"""
 
-    if final_name == "XISTpos_males" or final_name == "XISTpos_females":
-        df = df[df['XIST_positive_1_is_yes']==1]
-    elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
-        df = df[df['XIST_positive_1_is_yes']==0]
+if final_name == "XISTpos_males" or final_name == "XISTpos_females":
+    df = df[df['XIST_positive_1_is_yes']==1]
+elif final_name == "XISTneg_females" or final_name == "XISTneg_males":
+    df = df[df['XIST_positive_1_is_yes']==0]
 
-    df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
-    #df = df[df['Variant_Classification'].isin(['Silent'])]
+df = df[df['Variant_Classification'].isin(['Missense_Mutation', 'Silent'])]
+#df = df[df['Variant_Classification'].isin(['Silent'])]
 
-    ids = df['Truncated_Barcodes'].tolist()
-    start = df['Start_Position'].tolist()
+ids = df['Truncated_Barcodes'].tolist()
+start = df['Start_Position'].tolist()
 
-    cn_temp = []
+cn_temp = []
 
-    print(len(ids))
+print(len(ids))
 
-    new_purity = []
+new_purity = []
 
-    a=0
-    while a<len(ids):
-        temp_id = split_advanced(ids[a], "-", 3)[0]
-        new_purity.append(purity_dict[temp_id])
-        temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
-        start_vals = temp_df['Start'].tolist()
-        cn_vals = temp_df['Corrected_Copy_Number'].tolist()
-        q=0
-        while (q-1)<len(start_vals):
-            if q == len(start_vals):
-                cn_temp.append(cn_vals[q-1])
-                break
-            elif start[a] > start_vals[q]:
-                q=q+1
-            else:
-                cn_temp.append(cn_vals[q-1])
-                break
-        a=a+1
-        if a % 100 == 0:
-            print(a)
-
-    df['Purity'] = new_purity
-    df['CN_temp'] = cn_temp
-
-    #CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
-
-    DNA_VAF = df['DNA_VAF'].tolist()
-    RNA_VAF = df['RNA_VAF'].tolist()
-    purity = df['Purity'].tolist()
-
-    DNA_CCF = []
-    RNA_CCF = []
-    DNA_ui = []
-    RNA_ui = []
-    DNA_multiplicity = []
-    RNA_multiplicity = []
-
-    if final_name == "XISTpos_males" or final_name == "XISTneg_males":
-        normal_cn = 1
-    elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
-        normal_cn = 2
-
-    a=0
-    while a<len(cn_temp):
-        temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-        temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
-
-        DNA_ui.append(temp_DNA_ui)
-        RNA_ui.append(temp_RNA_ui)    
-
-        if temp_DNA_ui >= 1:
-            DNA_multiplicity.append(temp_DNA_ui)
-            DNA_CCF.append(1)
+a=0
+while a<len(ids):
+    temp_id = split_advanced(ids[a], "-", 3)[0]
+    new_purity.append(purity_dict[temp_id])
+    temp_df = df_seg[df_seg['Sample'].str.contains(temp_id)]
+    start_vals = temp_df['Start'].tolist()
+    cn_vals = temp_df['Corrected_Copy_Number'].tolist()
+    q=0
+    while (q-1)<len(start_vals):
+        if q == len(start_vals):
+            cn_temp.append(cn_vals[q-1])
+            break
+        elif start[a] > start_vals[q]:
+            q=q+1
         else:
-            DNA_multiplicity.append(1)
-            DNA_CCF.append(temp_DNA_ui)
+            cn_temp.append(cn_vals[q-1])
+            break
+    a=a+1
+    if a % 100 == 0:
+        print(a)
 
-        if temp_RNA_ui >= 1:
-            RNA_multiplicity.append(temp_RNA_ui)
-            RNA_CCF.append(1)
-        else:
-            RNA_multiplicity.append(1)
-            RNA_CCF.append(temp_RNA_ui)
+df['Purity'] = new_purity
+df['CN_temp'] = cn_temp
 
-        a=a+1
+#CCF calculations: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5538405/
 
-    df['DNA_ui'] = DNA_ui
-    df['RNA_ui'] = RNA_ui
-    df['DNA_multiplicity'] = DNA_multiplicity
-    df['RNA_multiplicity'] = RNA_multiplicity
-    df['DNA_CCF'] = DNA_CCF
-    df['RNA_CCF'] = RNA_CCF
+DNA_VAF = df['DNA_VAF'].tolist()
+RNA_VAF = df['RNA_VAF'].tolist()
+purity = df['Purity'].tolist()
 
-    #df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
+DNA_CCF = []
+RNA_CCF = []
+DNA_ui = []
+RNA_ui = []
+DNA_multiplicity = []
+RNA_multiplicity = []
 
-    df.to_csv(fname, index=False)
+if final_name == "XISTpos_males" or final_name == "XISTneg_males":
+    normal_cn = 1
+elif final_name == "XISTpos_females" or final_name == "XISTneg_females":
+    normal_cn = 2
+
+a=0
+while a<len(cn_temp):
+    temp_DNA_ui = DNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+    temp_RNA_ui = RNA_VAF[a]*1/purity[a]*(purity[a]*cn_temp[a]+(1-purity[a])*normal_cn)
+
+    DNA_ui.append(temp_DNA_ui)
+    RNA_ui.append(temp_RNA_ui)    
+
+    if temp_DNA_ui >= 1:
+        DNA_multiplicity.append(temp_DNA_ui)
+        DNA_CCF.append(1)
+    else:
+        DNA_multiplicity.append(1)
+        DNA_CCF.append(temp_DNA_ui)
+
+    if temp_RNA_ui >= 1:
+        RNA_multiplicity.append(temp_RNA_ui)
+        RNA_CCF.append(1)
+    else:
+        RNA_multiplicity.append(1)
+        RNA_CCF.append(temp_RNA_ui)
+
+    a=a+1
+
+df['DNA_ui'] = DNA_ui
+df['RNA_ui'] = RNA_ui
+df['DNA_multiplicity'] = DNA_multiplicity
+df['RNA_multiplicity'] = RNA_multiplicity
+df['DNA_CCF'] = DNA_CCF
+df['RNA_CCF'] = RNA_CCF
+
+#df = df[df['DNA_CCF']>=DNA_CCF_cutoff]
 
 #df = df[df['Variant_Classification'].isin(['Silent'])]
 df = df[df['Hugo_Symbol']!="MXRA5"]
-df = df[df['Purity']>purity_cutoff]
+df = df[df['Purity']>0.1]
 df = df[df['DNA_ui']>=ui_cutoff]
 
 xs = df['DNA_VAF'].tolist()
@@ -1206,10 +1177,3 @@ ax.text(0.07, 1, leq_point_5_ratio, transform=ax.transAxes,
 """
 
 plt.subplots_adjust(wspace=0, hspace=0.3)
-
-if cn_to_analyze == 2:
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".png", dpi=dpi_set)
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn2_" + gene_class + ".pdf", dpi=dpi_set)
-elif cn_to_analyze == 1:
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".png", dpi=dpi_set)
-    plt.savefig("/Users/ananthansadagopan/Documents/ViswanathanLab/XIST_Males/MXRA5_filtered_MALES_and_FEMALES_CCF_density_plots_test_cn1_" + gene_class + ".pdf", dpi=dpi_set)
