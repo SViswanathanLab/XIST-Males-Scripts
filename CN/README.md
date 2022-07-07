@@ -4,7 +4,7 @@
 
 Running instructions:
 
-(1) Install TITAN (https://github.com/GavinHaLab/TitanCNA_SV_WGS) and prepare a config file (example in: config_template.yaml)
+(1) Install TITAN (https://github.com/GavinHaLab/TitanCNA_SV_WGS) and prepare a config file (example in: config_template.yaml). Note: The snakemake file used by the wrapper script is provided in this repository.
 
 Ha G, Roth A, Khattra J, Ho J, Yap D, Prentice LM, Melnyk N, McPherson A, Bashashati A, Laks E, Biele J. TITAN: inference of copy number architectures in clonal cell populations from tumor whole-genome sequence data. Genome research. 2014 Nov 1;24(11):1881-93.
 
